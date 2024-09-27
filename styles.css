@@ -13,23 +13,24 @@ header {
 }
 
 header h1 {
-    font-size: 2.5em; /* Larger header font */
+    font-size: 2.5em; 
     margin: 0;
 }
 
 header p {
-    font-size: 1.2em; /* Slightly larger text */
-    font-style: italic; /* Italicize the introduction */
+    font-size: 1.2em; 
+    font-style: italic; 
 }
 
 .profile-pic {
-    width: 100px; /* Adjusted size */
-    height: 100px;
-    border-radius: 50%;
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
     margin-top: 10px;
     border: 3px solid white; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
 }
+
 
 section {
     margin: 20px;
@@ -41,12 +42,12 @@ section {
 
 h2 {
     color: #4CAF50;
-    border-bottom: 2px solid #4CAF50; /* Add an underline */
+    border-bottom: 2px solid #4CAF50;
     padding-bottom: 5px;
 }
 
 ul {
-    list-style-type: square; /* Change bullet style */
+    list-style-type: square; 
 }
 
 footer {
@@ -61,9 +62,9 @@ footer {
 
 a {
     color: #4CAF50;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none; 
 }
 
 a:hover {
-    text-decoration: underline; /* Add underline on hover */
+    text-decoration: underline; /
 }
