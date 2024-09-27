@@ -2,8 +2,8 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000; /* Set background to black */
-    color: white; /* Set text color to white for contrast */
+    background-color: #000; /* Black background */
+    color: white; /* Default text color */
 }
 
 header {
@@ -16,31 +16,57 @@ header h1 {
     margin: 0;
 }
 
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8em; /* Smaller font for mobile */
+    }
+
+    header .intro {
+        font-size: 1.1em; /* Smaller intro font for mobile */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Adjust headings for mobile */
+    }
+
+    .project-card h3 {
+        font-size: 1.1em; /* Adjust project title size */
+    }
+
+    a {
+        font-size: 1em; /* Adjust link size */
+    }
+}
+
+
 header .intro {
     font-size: 1.2em; 
     margin-top: 10px;
 }
 
+
 .profile-pic {
-    width: 150px;  /* Increase width to 150 pixels */
-    height: 150px; /* Increase height to 150 pixels */
+    width: 150px;  
+    height: 150px; 
     border-radius: 50%; 
     object-fit: cover; 
     margin-top: 10px;
     border: 3px solid white; 
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Change shadow color for contrast */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
 }
 
 section {
     margin: 20px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white for sections */
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent white for sections */
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 h2 {
-    color: white; /* Keep heading color white */
+    color: white; /* White for headings */
     border-bottom: 2px solid white; /* Optional: adds an underline */
     padding-bottom: 5px;
 }
@@ -63,5 +89,16 @@ footer {
     padding: 15px 0;
     background-color: rgba(255, 255, 255, 0.1); /* Light transparent footer */
     color: white;
+}
+
+a {
+    color: #00FFCC; /* Bright teal for links */
+    text-decoration: none; /* Remove underline */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Add shadow */
+}
+
+a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: #FFCC00; /* Bright yellow on hover */
 }
 
