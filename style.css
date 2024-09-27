@@ -47,6 +47,23 @@ header .intro {
 }
 
 
+.skill-set {
+    margin: 20px 0;
+}
+
+.skill {
+    margin: 10px 0;
+}
+
+.skill-level {
+    height: 10px; /* Height of the progress bar */
+    background-color: #00FFCC; /* Color for the skill level */
+    border-radius: 5px;
+    transition: width 0.5s; /* Smooth transition */
+}
+
+
+
 .profile-pic {
     width: 150px;  
     height: 150px; 
