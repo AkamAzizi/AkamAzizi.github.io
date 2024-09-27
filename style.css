@@ -58,6 +58,18 @@ h2 {
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
+.looking-for {
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent white for sections */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.looking-for h2 {
+    color: white; /* Keep heading color white */
+}
+
 button, .button {
     background-color: #00FFCC; /* Button color */
     color: black; /* Button text color */
