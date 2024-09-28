@@ -104,10 +104,10 @@ button, .button {
 }
 
 footer {
-    background-color: #f8f9fa; /* Light background color */
+    background-color: #464646; /* Light background color */
     padding: 20px;
     text-align: center;
-    border-top: 1px solid #ccc; /* Optional: Add a top border for separation */
+    border-top: 1px solid #5f5f5f; /* Optional: Add a top border for separation */
 }
 
 .footer-content {
