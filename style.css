@@ -142,7 +142,7 @@ footer {
     width: 100%; /* Full width for button */
     padding: 10px;
     background-color: #007bff; /* Bootstrap blue */
-    color: white;
+    color: rgb(97, 97, 97);
     border: none;
     border-radius: 5px;
     cursor: pointer;
