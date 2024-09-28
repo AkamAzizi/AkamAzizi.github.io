@@ -134,7 +134,7 @@ footer {
     width: 100%; /* Full width for inputs */
     padding: 10px;
     margin-bottom: 10px; /* Space between inputs */
-    border: 1px solid #ccc;
+    border: 1px solid #383838;
     border-radius: 5px;
 }
 
@@ -142,7 +142,7 @@ footer {
     width: 100%; /* Full width for button */
     padding: 10px;
     background-color: #007bff; /* Bootstrap blue */
-    color: rgb(97, 97, 97);
+    color: rgb(204, 204, 204);
     border: none;
     border-radius: 5px;
     cursor: pointer;
