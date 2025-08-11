@@ -18,18 +18,18 @@ header h1 {
 }
 
 header .intro {
-    font-size: 1.2em; 
+    font-size: 1.2em;
     margin-top: 10px;
 }
 
 .profile-pic {
-    width: 150px;  
-    height: 150px; 
-    border-radius: 50%; 
-    object-fit: cover; 
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-top: 10px;
-    border: 3px solid white; 
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
+    border: 3px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 section {
@@ -49,7 +49,7 @@ h2 {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px; 
+    gap: 20px;
 }
 
 .project-card {
@@ -86,7 +86,8 @@ p {
     color: #ffffff; /* White for "Currently Looking For" heading */
 }
 
-button, .button {
+button,
+.button {
     background-color: #00FFCC; /* Button color */
     color: black; /* Button text color */
     padding: 10px 15px;
@@ -122,6 +123,15 @@ footer {
     text-align: center; /* Center the text */
 }
 
+.contact-form label {
+    display: block;
+    text-align: left;
+    margin: 8px auto 4px auto;
+    max-width: 400px;
+    color: #ddd;
+    font-weight: 600;
+}
+
 .contact-form input,
 .contact-form textarea {
     width: 100%; /* Full width inputs */
@@ -130,6 +140,7 @@ footer {
     padding: 10px; /* Inner padding */
     border: 1px solid #ccc; /* Border */
     border-radius: 5px; /* Rounded corners for inputs */
+    font-size: 1em;
 }
 
 .contact-form button {
@@ -139,12 +150,12 @@ footer {
     background-color: #007bff; /* Button color */
     color: white; /* Text color */
     cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em;
 }
 
 .contact-form button:hover {
     background-color: #0056b3; /* Darker color on hover */
 }
-
 
 .skill-set {
     margin: 20px 0;
