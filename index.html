@@ -1,157 +1,1288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Portfolio of Akam Azizi, Applied AI student and software developer." />
-    <title>Akam Azizi's Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akam Azizi - Software Developer</title>
+    <meta name="description" content="Akam Azizi - Software Developer specializing in Python, algorithms, and game development. Available for hire.">
+    
+    <style>
+        /* OPTIMIZED RECRUITER-STOPPING PORTFOLIO */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            
+            /* SUPER DARK backgrounds for maximum contrast */
+            --bg-primary: #000000;
+            --bg-secondary: #030308;
+            --bg-tertiary: #0a0a12;
+            --bg-glass: rgba(0, 0, 0, 0.95);
+            --bg-glass-hover: rgba(10, 10, 18, 0.98);
+            
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-faded: #64748b;
+            
+            --border-primary: rgba(255, 255, 255, 0.15);
+            --border-accent: rgba(99, 102, 241, 0.4);
+            
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            --shadow-primary: 0 20px 40px -12px rgba(99, 102, 241, 0.5);
+            --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.4);
+            
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            --gradient-bg: radial-gradient(ellipse at top, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000000;
+            background-image: radial-gradient(ellipse at top, #030308 0%, #000000 100%);
+            color: #ffffff;
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* MUCH DARKER ANIMATED BACKGROUND */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 60% 20%, rgba(6, 182, 212, 0.04) 0%, transparent 40%);
+            z-index: -2;
+            animation: backgroundFlow 20s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        @keyframes backgroundFlow {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+            }
+            50% { 
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-primary);
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* HERO SECTION */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* OPTIMIZED PROFILE PICTURE */
+        .profile-container {
+            position: relative;
+            margin-bottom: 3rem;
+            filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5));
+        }
+
+        .profile-pic {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.4s ease;
+            box-shadow: 
+                0 0 0 4px rgba(255, 255, 255, 0.1),
+                0 0 0 8px rgba(99, 102, 241, 0.3),
+                0 30px 60px -10px rgba(0, 0, 0, 0.7);
+        }
+
+        .profile-pic::before {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                var(--primary) 0deg,
+                var(--accent) 120deg,
+                var(--secondary) 240deg,
+                var(--primary) 360deg
+            );
+            z-index: -1;
+            animation: profileSpin 8s linear infinite;
+            filter: blur(6px);
+        }
+
+        @keyframes profileSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        /* OPTIMIZED TEXT ANIMATIONS */
+        .hero-title {
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(
+                135deg,
+                #ffffff 0%,
+                var(--primary) 30%,
+                var(--secondary) 70%,
+                #ffffff 100%
+            );
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textShimmer 6s ease-in-out infinite;
+            letter-spacing: -0.03em;
+            line-height: 0.9;
+            text-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+        }
+
+        @keyframes textShimmer {
+            0%, 100% { 
+                background-position: 0% 50%;
+            }
+            50% { 
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideUpFade 1s ease 0.5s forwards;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0;
+            animation: slideUpFade 1s ease 1s forwards;
+            line-height: 1.6;
+        }
+
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* OPTIMIZED BUTTONS */
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            opacity: 0;
+            animation: slideUpFade 1s ease 1.5s forwards;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-width: 200px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                var(--shadow-primary),
+                0 25px 50px -12px rgba(99, 102, 241, 0.6);
+        }
+
+        .btn-secondary {
+            background: var(--bg-glass);
+            color: var(--text-primary);
+            border: 2px solid var(--border-accent);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            background: var(--bg-glass-hover);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ABOUT SECTION */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid var(--border-primary);
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* SKILLS SECTION */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .skill-category {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-primary);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-secondary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-accent);
+            box-shadow: var(--shadow-lg);
+            background: rgba(10, 10, 18, 0.95);
+        }
+
+        .skill-category-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* OPTIMIZED PROJECTS GRID */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-primary);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--border-accent);
+            box-shadow: var(--shadow-lg);
+            background: rgba(10, 10, 18, 0.95);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .project-type {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .tech-tag:hover {
+            background: rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links .btn {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            font-size: 0.95rem;
+            min-width: auto;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-primary);
+            border-radius: 32px;
+            margin: 4rem auto;
+            max-width: 1000px;
+            padding: 4rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow-primary);
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid var(--border-primary);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+            margin: 0 1rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copyright {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-primary);
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            header {
+                min-height: 95vh;
+                padding: 2rem 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .profile-pic {
+                width: 180px;
+                height: 180px;
+            }
+            
+            section {
+                padding: 4rem 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .project-card,
+            .skill-category {
+                padding: 2rem;
+            }
+            
+            .contact-section {
+                padding: 3rem 2rem;
+                margin: 2rem 1rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .project-card,
+            .skill-category,
+            .contact-section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .project-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+        }
+
+        /* ANIMATION CLASSES */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* SELECTION STYLING */
+        ::selection {
+            background: var(--primary);
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Akam Azizi</h1>
-        <img src="profile.jpg" alt="Portrait photo of Akam Azizi" class="profile-pic" />
-        <p class="intro">I'm a third-year Applied AI student at Mälardalens University.</p>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Akam Azizi</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home">
+        <div class="hero-content">
+            <div class="profile-container">
+                <img src="profile.jpg" alt="Akam Azizi" class="profile-pic">
+            </div>
+            <h1 class="hero-title">Akam Azizi</h1>
+            <h2 class="hero-subtitle">Software Developer & Problem Solver</h2>
+            <p class="hero-description">
+                Passionate developer specializing in Python, algorithm design, and game development. 
+                I build efficient solutions using cutting-edge technologies and love tackling complex problems.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
     </header>
-    
-    <section class="about">
-        <h2>About Me</h2>
-        <p>
-            My name is Akam Azizi and I'm currently living in Västerås, Sweden. I'm passionate about problem-solving and building innovative tech solutions using Python.
-            I love exploring the latest advancements in AI and applying them to real-world challenges.
-            In my free time, I enjoy contributing to open-source projects and collaborating with fellow developers.
-        </p>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Driven by curiosity and powered by code</p>
+        </div>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://via.placeholder.com/300x300/6366f1/ffffff?text=Akam" alt="Akam Azizi">
+            </div>
+            <div class="about-text">
+                <p>I'm a dedicated software developer with a passion for creating innovative solutions and efficient algorithms. My journey in programming has led me to explore various domains, from artificial intelligence and game development to practical business applications.</p>
+                
+                <p>I thrive on solving complex problems and turning ideas into reality through clean, maintainable code. Whether it's implementing advanced algorithms like MiniMax for game AI or building practical applications for real-world challenges, I approach each project with enthusiasm and attention to detail.</p>
+                
+                <p>Currently seeking opportunities to contribute to meaningful projects and collaborate with forward-thinking teams. I'm always eager to learn new technologies and take on challenging problems that push the boundaries of what's possible.</p>
+            </div>
+        </div>
     </section>
 
-    <section class="looking-for">
-        <h2>Currently Looking For</h2>
-        <p>
-            I am actively seeking job opportunities in the fields of Applied AI and software development.
-            If you have any opportunities or would like to connect, please reach out!
-        </p>
-    </section>
-
-    <section class="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-
-            <article class="project-card">
-                <h3>Sudoku Solver</h3>
-                <p>A Python implementation using backtracking algorithm to solve Sudoku puzzles. Includes 10 test cases and performance timing analysis.</p>
-                <a href="https://github.com/akamazizi/sudoku-solver" class="button" target="_blank" rel="noopener noreferrer">View Project</a>
-            </article>
-            <article class="project-card">
-                <h3>Knapsack Problem Solver</h3>
-                <p>Solves the 0/1 Knapsack optimization problem using both BFS and DFS algorithms with performance comparison and detailed analysis.</p>
-                <a href="https://github.com/akamazizi/knapsack-solver" class="button" target="_blank" rel="noopener noreferrer">View Project</a>
-            </article>
-            <article class="project-card">
-                <h3>MiniMax Mancala AI</h3>
-                <p>An AI opponent for the Mancala board game using the MiniMax algorithm with alpha-beta pruning for strategic gameplay decisions.</p>
-                <a href="https://github.com/akamazizi/minimax-mancala-ai" class="button" target="_blank" rel="noopener noreferrer">View Project</a>
-            </article>
-            <article class="project-card">
-                <h3>To-Do List App</h3>
-                <p>A graphical application built with Python and Tkinter, helping users manage their tasks efficiently.</p>
-                <a href="https://github.com/akamazizi/to-do-list" class="button" target="_blank" rel="noopener noreferrer">View Project</a>
-            </article>
-            <article class="project-card">
-                <h3>Flappy Bird Clone</h3>
-                <p>A fun Pygame project that recreates the classic game experience.</p>
-                <a href="https://github.com/akamazizi/Flappy-bird-Clone" class="button" target="_blank" rel="noopener noreferrer">View Project</a>
-            </article>
-            <article class="project-card">
-                <h3>Barbershop Queue Management App</h3>
-                <p>A barbershop queue management app designed to streamline customer flow and communication.</p>
-                <a href="https://github.com/AkamAzizi/barbershop-queue-app" class="button" target="_blank" rel="noopener noreferrer">View Project</a>
-            </article>
-            <article class="project-card">
-                <h3>Snake Game</h3>
-                <p>The classic arcade-style game where players control a snake to collect food and grow in length while avoiding collisions with the walls or their own tail.</p>
-                <a href="https://github.com/AkamAzizi/SnakeGame" class="button" target="_blank" rel="noopener noreferrer">View Project</a>
-            </article>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <p class="section-subtitle">Tools and technologies I work with</p>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3 class="skill-category-title">
+                    <span>💻</span> Programming Languages
+                </h3>
+                <div class="skill-items">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3 class="skill-category-title">
+                    <span>🚀</span> Frameworks & Libraries
+                </h3>
+                <div class="skill-items">
+                    <span class="skill-tag">Pygame</span>
+                    <span class="skill-tag">Tkinter</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3 class="skill-category-title">
+                    <span>🧠</span> Algorithms & AI
+                </h3>
+                <div class="skill-items">
+                    <span class="skill-tag">Backtracking</span>
+                    <span class="skill-tag">MiniMax Algorithm</span>
+                    <span class="skill-tag">Graph Algorithms</span>
+                    <span class="skill-tag">Dynamic Programming</span>
+                    <span class="skill-tag">Machine Learning</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3 class="skill-category-title">
+                    <span>🛠️</span> Tools & Technologies
+                </h3>
+                <div class="skill-items">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">MySQL</span>
+                </div>
+            </div>
         </div>
     </section>
-    
-<section class="skills">
-    <h2>Skills</h2>
-    <div class="skill-set">
-        <div class="skill">
-            <h3>Python</h3>
-            <div class="skill-level" style="width: 100%;" aria-label="Python skill level: 100%"></div>
-        </div>
-        <div class="skill">
-            <h3>JavaScript</h3>
-            <div class="skill-level" style="width: 45%;" aria-label="JavaScript skill level: 45%"></div>
-        </div>
-        <div class="skill">
-            <h3>TypeScript</h3>
-            <div class="skill-level" style="width: 50%;" aria-label="TypeScript skill level: 50%"></div>
-        </div>
-        <div class="skill">
-            <h3>Machine Learning</h3>
-            <div class="skill-level" style="width: 30%;" aria-label="Machine Learning skill level: 30%"></div>
-        </div>
-        <div class="skill">
-            <h3>Flask</h3>
-            <div class="skill-level" style="width: 70%;" aria-label="Flask skill level: 70%"></div>
-        </div>
-        <div class="skill">
-            <h3>SQL</h3>
-            <div class="skill-level" style="width: 50%;" aria-label="SQL skill level: 50%"></div>
-        </div>
-        <div class="skill">
-            <h3>React</h3>
-            <div class="skill-level" style="width: 45%;" aria-label="React skill level: 45%"></div>
-        </div>
-        <div class="skill">
-            <h3>React Native</h3>
-            <div class="skill-level" style="width: 50%;" aria-label="React Native skill level: 50%"></div>
-        </div>
-        <div class="skill">
-            <h3>Expo</h3>
-            <div class="skill-level" style="width: 45%;" aria-label="Expo skill level: 45%"></div>
-        </div>
-        <div class="skill">
-            <h3>Appwrite</h3>
-            <div class="skill-level" style="width: 50%;" aria-label="Appwrite skill level: 50%"></div>
-        </div>
-        <div class="skill">
-            <h3>Tkinter</h3>
-            <div class="skill-level" style="width: 60%;" aria-label="Tkinter skill level: 60%"></div>
-        </div>
-    </div>
-</section>
 
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A showcase of my development work and problem-solving skills</p>
+        </div>
+        <div class="projects-grid">
+            <!-- Sudoku Solver -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🧩</div>
+                    <h3 class="project-title">Intelligent Sudoku Solver</h3>
+                </div>
+                <div class="project-type">Algorithm Implementation</div>
+                <p class="project-description">
+                    Advanced Sudoku solver built with Python using recursive backtracking and constraint propagation. 
+                    Features comprehensive test suite with 10+ puzzle variations, performance timing analysis, and 
+                    optimization techniques for solving puzzles of varying difficulty levels.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Backtracking</span>
+                    <span class="tech-tag">Algorithm Design</span>
+                    <span class="tech-tag">Performance Analysis</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/akamazizi/sudoku-solver" class="btn btn-primary" target="_blank">View Code</a>
+                </div>
+            </div>
 
+            <!-- MiniMax Mancala AI -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🤖</div>
+                    <h3 class="project-title">MiniMax Mancala AI</h3>
+                </div>
+                <div class="project-type">Artificial Intelligence</div>
+                <p class="project-description">
+                    Sophisticated AI opponent for the classic Mancala board game implementing the MiniMax algorithm 
+                    with alpha-beta pruning optimization. Features multiple difficulty levels, strategic gameplay 
+                    decision-making, and efficient game tree evaluation for competitive play.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">MiniMax Algorithm</span>
+                    <span class="tech-tag">Alpha-Beta Pruning</span>
+                    <span class="tech-tag">Game Theory</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/akamazizi/minimax-mancala-ai" class="btn btn-primary" target="_blank">View Code</a>
+                </div>
+            </div>
+
+            <!-- Knapsack Problem Solver -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">📦</div>
+                    <h3 class="project-title">Knapsack Optimization Suite</h3>
+                </div>
+                <div class="project-type">Optimization Algorithm</div>
+                <p class="project-description">
+                    Comprehensive solution to the 0/1 Knapsack optimization problem featuring both BFS and DFS 
+                    algorithm implementations. Includes detailed performance comparison analysis, visualization 
+                    of solution paths, and benchmarking tools for algorithm efficiency evaluation.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Dynamic Programming</span>
+                    <span class="tech-tag">BFS/DFS</span>
+                    <span class="tech-tag">Optimization</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/akamazizi/knapsack-solver" class="btn btn-primary" target="_blank">View Code</a>
+                </div>
+            </div>
+
+            <!-- Snake Game -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🐍</div>
+                    <h3 class="project-title">Classic Snake Game</h3>
+                </div>
+                <div class="project-type">Game Development</div>
+                <p class="project-description">
+                    Faithful recreation of the classic arcade Snake game with modern enhancements. Features 
+                    smooth gameplay mechanics, progressive difficulty scaling, high score tracking, and 
+                    responsive collision detection with polished graphics and sound effects.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Pygame</span>
+                    <span class="tech-tag">Game Logic</span>
+                    <span class="tech-tag">Event Handling</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/AkamAzizi/SnakeGame" class="btn btn-primary" target="_blank">View Code</a>
+                </div>
+            </div>
+
+            <!-- Barbershop Queue App -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">✂️</div>
+                    <h3 class="project-title">Barbershop Queue Manager</h3>
+                </div>
+                <div class="project-type">Business Application</div>
+                <p class="project-description">
+                    Professional queue management system designed to streamline customer flow and enhance 
+                    communication in barbershop environments. Features real-time wait time estimation, 
+                    customer notifications, and staff dashboard for efficient service management.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Tkinter</span>
+                    <span class="tech-tag">Queue Management</span>
+                    <span class="tech-tag">Business Logic</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/AkamAzizi/barbershop-queue-app" class="btn btn-primary" target="_blank">View Code</a>
+                </div>
+            </div>
+
+            <!-- Flappy Bird Clone -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🐦</div>
+                    <h3 class="project-title">Flappy Bird Clone</h3>
+                </div>
+                <div class="project-type">Game Development</div>
+                <p class="project-description">
+                    Engaging recreation of the popular Flappy Bird game with enhanced graphics and smooth 
+                    gameplay mechanics. Implements physics-based movement, collision detection, progressive 
+                    difficulty, and achievement system for an addictive gaming experience.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Pygame</span>
+                    <span class="tech-tag">Physics Simulation</span>
+                    <span class="tech-tag">Animation</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/akamazizi/Flappy-bird-Clone" class="btn btn-primary" target="_blank">View Code</a>
+                </div>
+            </div>
+
+            <!-- To-Do List App -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">📝</div>
+                    <h3 class="project-title">Smart To-Do Manager</h3>
+                </div>
+                <div class="project-type">Productivity Application</div>
+                <p class="project-description">
+                    Feature-rich task management application built with Python and Tkinter. Includes priority 
+                    setting, deadline tracking, category organization, and data persistence. Designed with 
+                    intuitive user interface for efficient personal productivity management.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Tkinter</span>
+                    <span class="tech-tag">Data Persistence</span>
+                    <span class="tech-tag">UI/UX Design</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/akamazizi/to-do-list" class="btn btn-primary" target="_blank">View Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-section">
+            <div class="section-header">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">Ready to bring your ideas to life</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:akam.azizi33@gmail.com">your.email@example.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/akam-azizi-932897213/" target="_blank">Connect with me</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🐙</div>
+                        <div class="contact-details">
+                            <h4>GitHub</h4>
+                            <p><a href="https://github.com/akamazizi" target="_blank">akamazizi</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📄</div>
+                        <div class="contact-details">
+                            <h4>Resume</h4>
+                            <p><a href="#" target="_blank">Download PDF</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-message">
+                    <h3>Available for Opportunities</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">
+                        I'm actively seeking new opportunities in software development, particularly in roles involving 
+                        algorithm design, AI/ML, game development, or full-stack web development. I'm passionate about 
+                        solving complex problems and contributing to innovative projects.
+                    </p>
+                    
+                    <div style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">What I'm Looking For:</h4>
+                        <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
+                            <li>Full-time software development positions</li>
+                            <li>Internships in tech companies</li>
+                            <li>Collaborative projects and open-source contributions</li>
+                            <li>Freelance development opportunities</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="mailto:your.email@example.com" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        Send Me a Message
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-links">
-                <p>
-                    Feel free to connect with me on 
-                    <a href="https://www.linkedin.com/in/akam-azizi-932897213/" target="_blank" rel="noopener noreferrer">LinkedIn</a> 
-                    or email me at 
-                    <a href="mailto:akam.azizi33@gmail.com">akam.azizi33@gmail.com</a>.
-                </p>
+                <a href="https://github.com/akamazizi" target="_blank">GitHub</a>
+                <a href="www.linkedin.com/in/akam-azizi-932897213/" target="_blank">LinkedIn</a>
+                <a href="mailto:akam.azizi33@gmail.com">Email</a>
             </div>
-            <div class="contact-form">
-                <h3>Contact Me</h3>
-                <form action="https://formspree.io/f/xdknqzjv" method="POST" aria-label="Contact form">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required />
-                    
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required />
-                    
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" rows="3" placeholder="Your Message" required></textarea>
-                    
-                    <button type="submit">Send</button>
-                </form>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Akam Azizi. Built with passion and code.</p>
             </div>
         </div>
-        <p>© 2024 Akam Azizi</p>
-    </footer>   
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animatable elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add animation classes to elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.project-card, .skill-category, .contact-item');
+            animateElements.forEach(el => {
+                el.classList.add('animate-on-scroll');
+            });
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+    </script>
 </body>
 </html>
