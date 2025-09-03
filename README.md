@@ -24,6 +24,7 @@ I'm a dedicated software developer with a passion for creating innovative soluti
 - **[Flappy Bird Clone](https://github.com/akamazizi/Flappy-bird-Clone)**: Engaging recreation of the popular Flappy Bird game with enhanced graphics and smooth gameplay mechanics. Implements physics-based movement, collision detection, and progressive difficulty.
 
 ### Business Applications
+- **[AI Resume Analyzer](https://github.com/AkamAzizi/ai-resume-analyzer)**: Full-stack application that helps job seekers match their resumes against job descriptions. Built with **FastAPI, scikit-learn, spaCy** on the backend and **React + TypeScript + Material UI** on the frontend. Provides a match score and highlights missing keywords, simulating Applicant Tracking Systems (ATS).
 - **[Barbershop Queue Manager](https://github.com/AkamAzizi/barbershop-queue-app)**: Professional queue management system designed to streamline customer flow and enhance communication in barbershop environments. Features real-time wait time estimation and customer notifications.
 - **[Smart To-Do Manager](https://github.com/akamazizi/to-do-list)**: Feature-rich task management application built with Python and Tkinter. Includes priority setting, deadline tracking, category organization, and data persistence.
 
