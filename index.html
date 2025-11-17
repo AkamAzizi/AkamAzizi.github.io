@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Akam Azizi — Software Developer (Applied AI)</title>
-  <meta name="description" content="Akam Azizi — Software Developer specializing in Applied AI, Python, and full‑stack apps. Available for internships and junior roles." />
+  <meta name="description" content="Akam Azizi — Software Developer specializing in Applied AI, Python, and full-stack apps. Available for internships and junior roles." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -14,107 +14,514 @@
   <meta property="og:image" content="profile-og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="favicon.ico" />
+
   <style>
     :root {
-      --primary: #6366f1; --primary-dark:#4f46e5; --secondary:#ec4899; --accent:#06b6d4;
-      --bg: #000; --bg-2:#030308; --glass: rgba(0,0,0,.9);
-      --text:#fff; --text-2:#e2e8f0; --muted:#94a3b8;
-      --border: rgba(255,255,255,.14); --border-2: rgba(99,102,241,.4);
-      --shadow: 0 10px 30px rgba(0,0,0,.45);
-      --grad: linear-gradient(135deg,var(--primary),var(--secondary));
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #4f46e5;
+      --accent: #0ea5e9;
+
+      --bg: #f3f4f6;
+      --bg-2: #e5e7eb;
+      --glass: #ffffff;
+
+      --text: #0f172a;
+      --text-2: #334155;
+      --muted: #64748b;
+
+      --border: #e2e8f0;
+      --border-2: #bfdbfe;
+
+      --shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+      --grad: linear-gradient(135deg, #2563eb, #4f46e5);
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(1200px 800px at 50% -10%,#0b0b14,transparent),var(--bg);color:var(--text);line-height:1.7}
-    a{color:inherit}
-    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Arial, sans-serif;
+      background: radial-gradient(
+          1200px 800px at 50% -10%,
+          #e0f2fe,
+          transparent
+        ),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
 
     /* Nav */
-    nav{position:fixed;inset:0 0 auto;z-index:1000;background:rgba(0,0,0,.86);backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid var(--border)}
-    .nav-wrap{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 16px}
-    .logo{font-weight:800;letter-spacing:.2px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .nav-links{display:flex;gap:18px;list-style:none;margin:0;padding:0}
-    .nav-links a{color:var(--text-2);text-decoration:none;font-weight:600;font-size:.95rem}
-    .nav-links a:hover{color:var(--primary)}
-    .hamburger{display:none;gap:6px;flex-direction:column;border:0;background:transparent;cursor:pointer}
-    .hamburger span{width:22px;height:2px;background:#fff;border-radius:2px}
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: saturate(140%) blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hamburger {
+      display: none;
+      gap: 6px;
+      flex-direction: column;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background: #0f172a;
+      border-radius: 2px;
+    }
 
     /* Sections */
-    main{isolation:isolate}
-    section{max-width:1400px;margin:0 auto;padding:80px 16px}
+    main {
+      isolation: isolate;
+    }
+
+    section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 16px;
+    }
 
     /* Hero */
-    header.hero{min-height:100vh;display:grid;place-items:center;padding:120px 16px 80px;background:linear-gradient(180deg,rgba(0,0,0,.9),transparent)}
-    .hero-inner{max-width:960px;text-align:center}
-    .profile{display:inline-grid;place-items:center;margin-bottom:20px}
-    .profile img{width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid rgba(99,102,241,.35);box-shadow:var(--shadow)}
-    h1.title{font-size:clamp(2.2rem,6vw,4.2rem);margin:10px 0;background:linear-gradient(135deg,#fff 10%,var(--primary) 55%,var(--secondary));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    p.kicker{color:var(--text-2);font-weight:700;letter-spacing:.3px;margin:6px 0 10px}
-    p.desc{max-width:680px;margin:0 auto 22px;color:var(--muted)}
-    .btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-    .btn{padding:12px 18px;border-radius:999px;border:2px solid transparent;text-decoration:none;font-weight:800;letter-spacing:.3px;text-transform:uppercase;font-size:.9rem;display:inline-flex;align-items:center;gap:10px}
-    .btn-primary{background:var(--grad);box-shadow:0 12px 28px rgba(99,102,241,.45);color:#fff}
-    .btn-secondary{background:var(--glass);border-color:var(--border-2)}
-    .btn-secondary:hover{border-color:var(--primary)}
+    header.hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 120px 16px 80px;
+      background: linear-gradient(
+        180deg,
+        #ffffff,
+        rgba(248, 250, 252, 0.95),
+        transparent
+      );
+    }
+
+    .hero-inner {
+      max-width: 960px;
+      text-align: center;
+    }
+
+    .profile {
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(191, 219, 254, 1);
+      box-shadow: var(--shadow);
+    }
+
+    h1.title {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      margin: 10px 0;
+      background: linear-gradient(135deg, #0f172a 10%, #2563eb 55%, #4f46e5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.kicker {
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin: 6px 0 10px;
+    }
+
+    p.desc {
+      max-width: 680px;
+      margin: 0 auto 22px;
+      color: var(--text-2);
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--grad);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8, #4f46e5);
+    }
+
+    .btn-secondary {
+      background: var(--glass);
+      border-color: var(--border-2);
+      color: var(--primary-dark);
+    }
+
+    .btn-secondary:hover {
+      background: #eff6ff;
+      border-color: #60a5fa;
+    }
 
     /* About */
-    .about{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
-    .about-img img{width:220px;height:220px;border-radius:22px;object-fit:cover;border:3px solid var(--border);box-shadow:var(--shadow)}
-    .about p{color:var(--text-2)}
+    .about {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .about-img img {
+      width: 220px;
+      height: 220px;
+      border-radius: 22px;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .about p {
+      color: var(--text-2);
+    }
 
     /* Skills */
-    .skills{display:grid;grid-template-columns:1fr;gap:18px;margin-top:24px}
-    .skill-card{background:rgba(0,0,0,.82);border:1px solid var(--border);border-radius:18px;padding:22px;transition:transform .2s}
-    .skill-card:hover{transform:translateY(-4px);border-color:var(--border-2)}
-    .skill-title{color:var(--primary);font-weight:800;margin:0 0 12px}
-    .tags{display:flex;flex-wrap:wrap;gap:10px}
-    .tag{border:1px solid rgba(99,102,241,.35);background:rgba(99,102,241,.18);color:var(--primary);padding:6px 12px;border-radius:999px;font-weight:700;font-size:.85rem}
+    .skills {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .skill-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transition: transform 0.16s ease, box-shadow 0.16s ease,
+        border-color 0.16s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      border-color: var(--border-2);
+    }
+
+    .skill-title {
+      color: var(--primary-dark);
+      font-weight: 800;
+      margin: 0 0 12px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
 
     /* Projects */
-    .grid{display:grid;grid-template-columns:1fr;gap:24px}
-    .card{background:rgba(0,0,0,.86);border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s}
-    .card:hover{transform:translateY(-6px);border-color:var(--border-2)}
-    .card .head{display:flex;gap:12px;align-items:center;margin-bottom:10px}
-    .icon{width:46px;height:46px;border-radius:12px;background:var(--grad);display:grid;place-items:center;font-weight:800}
-    .title{font-weight:900;margin:0}
-    .ptype{font-size:.78rem;color:var(--primary);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin:2px 0 8px}
-    .pdesc{color:var(--text-2);margin:0 0 14px}
-    .ptech{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
-    .plink{display:flex;gap:10px}
-    .plink .btn{flex:1;justify-content:center}
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transition: transform 0.16s ease, border-color 0.16s ease,
+        box-shadow 0.16s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-2);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+    }
+
+    .card .head {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--grad);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .title {
+      font-weight: 900;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .ptype {
+      font-size: 0.78rem;
+      color: var(--primary-dark);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 2px 0 8px;
+    }
+
+    .pdesc {
+      color: var(--text-2);
+      margin: 0 0 14px;
+    }
+
+    .ptech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 16px;
+    }
+
+    .plink {
+      display: flex;
+      gap: 10px;
+    }
+
+    .plink .btn {
+      flex: 1;
+      justify-content: center;
+    }
 
     /* Contact */
-    .contact-wrap{background:rgba(0,0,0,.86);border:1px solid var(--border);border-radius:22px;max-width:960px;margin:auto;padding:28px}
-    .contact-grid{display:grid;grid-template-columns:1fr;gap:24px}
-    .citem{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.06);padding:14px;border-radius:14px}
+    .contact-wrap {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      max-width: 960px;
+      margin: auto;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .citem {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      background: #f9fafb;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
 
     /* Footer */
-    footer{border-top:1px solid var(--border);padding:40px 16px;text-align:center;color:#94a3b8}
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 16px;
+      text-align: center;
+      color: var(--muted);
+      background: #f9fafb;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
 
     /* Section headings */
-    .section-head{text-align:center;margin-bottom:28px}
-    .section-title{font-size:clamp(2rem,5vw,3rem);font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin:0}
-    .section-sub{color:var(--text-2);margin:8px auto 0;max-width:640px}
+    .section-head {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #0f172a, #2563eb);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      margin: 8px auto 0;
+      max-width: 640px;
+    }
 
     /* Responsive */
-    @media (min-width: 768px){
-      .hamburger{display:none}
-      .about{grid-template-columns:1fr 2fr;gap:40px}
-      .skills{grid-template-columns:repeat(2,1fr)}
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .contact-grid{grid-template-columns:1fr 1.2fr}
+    @media (min-width: 768px) {
+      .hamburger {
+        display: none;
+      }
+
+      .about {
+        grid-template-columns: 1fr 2fr;
+        gap: 40px;
+      }
+
+      .skills {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1.2fr;
+      }
     }
-    @media (max-width: 768px){
-      .nav-links{display:none}
-      .hamburger{display:flex}
-      .nav-open .nav-links{display:flex;position:absolute;top:56px;left:0;right:0;background:rgba(0,0,0,.98);padding:12px 16px;border-bottom:1px solid var(--border)}
-      .nav-open .nav-links li{padding:8px 2px}
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-open .nav-links {
+        display: flex;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .nav-open .nav-links li {
+        padding: 8px 2px;
+      }
     }
 
     /* Accessibility */
-    :focus-visible{outline:2px dashed var(--accent);outline-offset:3px}
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    :focus-visible {
+      outline: 2px dashed var(--accent);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
@@ -140,9 +547,9 @@
       <div class="profile">
         <img src="profil.jpg" width="320" height="320" alt="Portrait of Akam Azizi" loading="lazy" />
       </div>
-      <h1 class="title">Full‑Stack & Applied‑AI Developer</h1>
-      <p class="kicker">3rd‑year Applied AI @ MDU • Open to internships & junior roles</p>
-      <p class="desc">I build practical apps fast: React/React Native front‑ends, Python back‑ends, and small AI tools. Scroll to see featured projects, skills, and how to reach me.</p>
+      <h1 class="title">Full-Stack & Applied-AI Developer</h1>
+      <p class="kicker">3rd-year Applied AI @ MDU • Open to internships & junior roles</p>
+      <p class="desc">I build practical apps fast: React/React Native front-ends, Python back-ends, and small AI tools. Scroll to see featured projects, skills, and how to reach me.</p>
       <div class="btns" role="group" aria-label="Primary actions">
         <a class="btn btn-primary" href="#projects">View My Work</a>
         <a class="btn btn-secondary" href="#contact">Get In Touch</a>
@@ -160,9 +567,9 @@
       <div class="about">
         <div class="about-img"><img src="profil.jpg" width="440" height="440" alt="Akam working at a laptop" loading="lazy" /></div>
         <div>
-          <p>I'm a third‑year Applied AI student at Mälardalens University. I like turning ideas into usable products: from small games to business tools and ML‑assisted utilities. I value clean code, quick feedback loops, and real users.</p>
-          <p>Recently I've been iterating on a <strong>Flappy Bird clone (Pygame)</strong>, a <strong>local‑only micro‑challenges app (React Native)</strong>, a <strong>To‑Do desktop app (Tkinter)</strong>, and an <strong>AI Resume Analyzer (FastAPI + NLP)</strong>.</p>
-          <p>I’m looking for opportunities where I can contribute immediately, keep learning, and ship features end‑to‑end.</p>
+          <p>I'm a third-year Applied AI student at Mälardalens University. I like turning ideas into usable products: from small games to business tools and ML-assisted utilities. I value clean code, quick feedback loops, and real users.</p>
+          <p>Recently I've been iterating on a <strong>Flappy Bird clone (Pygame)</strong>, a <strong>local-only micro-challenges app (React Native)</strong>, a <strong>To-Do desktop app (Tkinter)</strong>, and an <strong>AI Resume Analyzer (FastAPI + NLP)</strong>.</p>
+          <p>I’m looking for opportunities where I can contribute immediately, keep learning, and ship features end-to-end.</p>
         </div>
       </div>
     </section>
@@ -186,7 +593,7 @@
           <div class="tags">
             <span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">React</span><span class="tag">React Native</span>
             <span class="tag">Material UI</span><span class="tag">Pygame</span><span class="tag">Tkinter</span>
-            <span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">scikit‑learn</span><span class="tag">spaCy</span>
+            <span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">spaCy</span>
           </div>
         </article>
         <article class="skill-card">
@@ -227,9 +634,9 @@
         <!-- AI Resume Analyzer -->
         <article class="card">
           <div class="head"><div class="icon" aria-hidden>📊</div><h3 class="title">AI Resume Analyzer</h3></div>
-          <div class="ptype">Full‑Stack Application</div>
-          <p class="pdesc">NLP‑powered scoring versus job descriptions. Highlights missing keywords; FastAPI backend + React front‑end.</p>
-          <div class="ptech"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">scikit‑learn</span><span class="tag">spaCy</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
+          <div class="ptype">Full-Stack Application</div>
+          <p class="pdesc">NLP-powered scoring versus job descriptions. Highlights missing keywords; FastAPI backend + React front-end.</p>
+          <div class="ptech"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">scikit-learn</span><span class="tag">spaCy</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
           <div class="plink"><a class="btn btn-secondary" href="https://github.com/AkamAzizi/ai-resume-analyzer" target="_blank" rel="noreferrer">View Code</a></div>
         </article>
 
@@ -237,7 +644,7 @@
         <article class="card">
           <div class="head"><div class="icon" aria-hidden>⚡️</div><h3 class="title">Micro Challenges</h3></div>
           <div class="ptype">Mobile App</div>
-          <p class="pdesc">Local‑only habit app: one small challenge at a time, max 3/hour, optional local notifications.</p>
+          <p class="pdesc">Local-only habit app: one small challenge at a time, max 3/hour, optional local notifications.</p>
           <div class="ptech"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">TypeScript</span><span class="tag">AsyncStorage</span></div>
           <div class="plink"><a class="btn btn-secondary" href="https://github.com/akamazizi/micro-challenges" target="_blank" rel="noreferrer">View Code</a></div>
         </article>
@@ -246,8 +653,8 @@
         <article class="card">
           <div class="head"><div class="icon" aria-hidden>🤖</div><h3 class="title">MiniMax Mancala AI</h3></div>
           <div class="ptype">Artificial Intelligence</div>
-          <p class="pdesc">AI opponent with MiniMax + alpha‑beta pruning. Multiple difficulty levels and fast evaluation.</p>
-          <div class="ptech"><span class="tag">Python</span><span class="tag">MiniMax</span><span class="tag">Alpha‑Beta</span></div>
+          <p class="pdesc">AI opponent with MiniMax + alpha-beta pruning. Multiple difficulty levels and fast evaluation.</p>
+          <div class="ptech"><span class="tag">Python</span><span class="tag">MiniMax</span><span class="tag">Alpha-Beta</span></div>
           <div class="plink"><a class="btn btn-secondary" href="https://github.com/akamazizi/minimax-mancala-ai" target="_blank" rel="noreferrer">View Code</a></div>
         </article>
 
@@ -273,7 +680,7 @@
         <article class="card">
           <div class="head"><div class="icon" aria-hidden>✂️</div><h3 class="title">Barbershop Queue Manager</h3></div>
           <div class="ptype">Business Application</div>
-          <p class="pdesc">Queue management with wait‑time estimates, notifications, and staff dashboard.</p>
+          <p class="pdesc">Queue management with wait-time estimates, notifications, and staff dashboard.</p>
           <div class="ptech"><span class="tag">Python</span><span class="tag">Tkinter</span></div>
           <div class="plink"><a class="btn btn-secondary" href="https://github.com/AkamAzizi/barbershop-queue-app" target="_blank" rel="noreferrer">View Code</a></div>
         </article>
@@ -282,14 +689,14 @@
         <article class="card">
           <div class="head"><div class="icon" aria-hidden>🐦</div><h3 class="title">Flappy Bird Clone</h3></div>
           <div class="ptype">Game Development</div>
-          <p class="pdesc">Class‑based, delta‑timed clone with collisions, difficulty ramp, and parallax background.</p>
+          <p class="pdesc">Class-based, delta-timed clone with collisions, difficulty ramp, and parallax background.</p>
           <div class="ptech"><span class="tag">Python</span><span class="tag">Pygame</span></div>
           <div class="plink"><a class="btn btn-secondary" href="https://github.com/akamazizi/Flappy-bird-Clone" target="_blank" rel="noreferrer">View Code</a></div>
         </article>
 
-        <!-- To‑Do -->
+        <!-- To-Do -->
         <article class="card">
-          <div class="head"><div class="icon" aria-hidden>📝</div><h3 class="title">Smart To‑Do Manager</h3></div>
+          <div class="head"><div class="icon" aria-hidden>📝</div><h3 class="title">Smart To-Do Manager</h3></div>
           <div class="ptype">Productivity</div>
           <p class="pdesc">Tasks with priorities and due dates, persisted to file. Polished Tkinter UI.</p>
           <div class="ptech"><span class="tag">Python</span><span class="tag">Tkinter</span></div>
@@ -308,18 +715,36 @@
         <div class="contact-grid">
           <div>
             <h3 class="skill-title" style="margin-top:0">Get in touch</h3>
-            <div class="citem"><div class="icon" aria-hidden>📧</div><div><div><strong>Email</strong></div><a href="mailto:akam.azizi33@gmail.com">akam.azizi33@gmail.com</a></div></div>
-            <div class="citem"><div class="icon" aria-hidden>💼</div><div><div><strong>LinkedIn</strong></div><a href="https://www.linkedin.com/in/akam-azizi-932897213/" target="_blank" rel="noreferrer">Connect with me</a></div></div>
-            <div class="citem"><div class="icon" aria-hidden>🐙</div><div><div><strong>GitHub</strong></div><a href="https://github.com/akamazizi" target="_blank" rel="noreferrer">akamazizi</a></div></div>
+            <div class="citem">
+              <div class="icon" aria-hidden>📧</div>
+              <div>
+                <div><strong>Email</strong></div>
+                <a href="mailto:akam.azizi33@gmail.com">akam.azizi33@gmail.com</a>
+              </div>
+            </div>
+            <div class="citem">
+              <div class="icon" aria-hidden>💼</div>
+              <div>
+                <div><strong>LinkedIn</strong></div>
+                <a href="https://www.linkedin.com/in/akam-azizi-932897213/" target="_blank" rel="noreferrer">Connect with me</a>
+              </div>
+            </div>
+            <div class="citem">
+              <div class="icon" aria-hidden>🐙</div>
+              <div>
+                <div><strong>GitHub</strong></div>
+                <a href="https://github.com/akamazizi" target="_blank" rel="noreferrer">akamazizi</a>
+              </div>
+            </div>
           </div>
           <div>
-            <p class="pdesc">I'm actively seeking internship and entry‑level roles in software development and Applied AI. I enjoy shipping features, learning quickly, and collaborating with teams.</p>
+            <p class="pdesc">I'm actively seeking internship and entry-level roles in software development and Applied AI. I enjoy shipping features, learning quickly, and collaborating with teams.</p>
             <div class="skill-card" style="margin:16px 0 20px">
               <h4 class="skill-title" style="margin:0">What I'm looking for</h4>
               <ul style="margin:10px 0 0 18px;color:var(--text-2)">
                 <li>Software developer internships / junior roles</li>
                 <li>Applied AI & ML projects (Python)</li>
-                <li>Full‑stack work (FastAPI/React/React Native)</li>
+                <li>Full-stack work (FastAPI/React/React Native)</li>
               </ul>
             </div>
             <a class="btn btn-primary" href="mailto:akam.azizi33@gmail.com" style="width:100%;justify-content:center">Send me a message</a>
@@ -367,7 +792,7 @@
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 
-  <!-- JSON‑LD Person schema for richer search previews -->
+  <!-- JSON-LD Person schema for richer search previews -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
