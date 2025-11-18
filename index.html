@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Akam Azizi — Software Developer (Applied AI)</title>
-  <meta name="description" content="Akam Azizi — Software Developer specializing in Applied AI, Python, and full-stack apps. Available for internships and junior roles." />
+  <meta name="description" content="Akam Azizi — Software Developer specializing in Applied AI, React Native, and full-stack apps. Building adaptive learning games and practical tools. Available for internships and junior roles." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <meta property="og:title" content="Akam Azizi — Software Developer" />
-  <meta property="og:description" content="Applied AI student building practical apps and games. View projects, skills, and contact." />
+  <meta property="og:description" content="Applied AI student building practical apps, mobile games, and adaptive learning tools. View projects, skills, and contact." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="profile-og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -198,8 +198,26 @@
 
     p.desc {
       max-width: 680px;
-      margin: 0 auto 22px;
+      margin: 0 auto 18px;
       color: var(--text-2);
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .hero-highlight span {
+      font-weight: 700;
     }
 
     .btns {
@@ -207,6 +225,7 @@
       flex-wrap: wrap;
       gap: 12px;
       justify-content: center;
+      margin-top: 6px;
     }
 
     .btn {
@@ -390,6 +409,29 @@
       justify-content: center;
     }
 
+    /* Featured project styling */
+    .featured-card {
+      border-color: #2563eb;
+      box-shadow: 0 22px 60px rgba(37, 99, 235, 0.18);
+      position: relative;
+    }
+
+    .badge-featured {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
     /* Contact */
     .contact-wrap {
       background: #ffffff;
@@ -461,10 +503,6 @@
 
     /* Responsive */
     @media (min-width: 768px) {
-      .hamburger {
-        display: none;
-      }
-
       .about {
         grid-template-columns: 1fr 2fr;
         gap: 40px;
@@ -476,6 +514,10 @@
 
       .grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-card {
+        grid-column: 1 / -1;
       }
 
       .contact-grid {
@@ -547,9 +589,15 @@
       <div class="profile">
         <img src="profil.jpg" width="320" height="320" alt="Portrait of Akam Azizi" loading="lazy" />
       </div>
-      <h1 class="title">Full-Stack & Applied-AI Developer</h1>
+      <div class="hero-highlight">
+        <span>Featured:</span> Adaptive Boss Battle — React Native adaptive learning game
+      </div>
+      <h1 class="title">Full-Stack & Applied AI Developer</h1>
       <p class="kicker">3rd-year Applied AI @ MDU • Open to internships & junior roles</p>
-      <p class="desc">I build practical apps fast: React/React Native front-ends, Python back-ends, and small AI tools. Scroll to see featured projects, skills, and how to reach me.</p>
+      <p class="desc">
+        I build practical apps and interactive experiences: React/React Native front-ends, Python back-ends,
+        and small AI tools. Recently I’ve focused on adaptive learning and game-inspired interfaces.
+      </p>
       <div class="btns" role="group" aria-label="Primary actions">
         <a class="btn btn-primary" href="#projects">View My Work</a>
         <a class="btn btn-secondary" href="#contact">Get In Touch</a>
@@ -565,11 +613,24 @@
         <p class="section-sub">Driven by curiosity • Focused on shipping value</p>
       </div>
       <div class="about">
-        <div class="about-img"><img src="profil.jpg" width="440" height="440" alt="Akam working at a laptop" loading="lazy" /></div>
+        <div class="about-img">
+          <img src="profil.jpg" width="440" height="440" alt="Akam working at a laptop" loading="lazy" />
+        </div>
         <div>
-          <p>I'm a third-year Applied AI student at Mälardalens University. I like turning ideas into usable products: from small games to business tools and ML-assisted utilities. I value clean code, quick feedback loops, and real users.</p>
-          <p>Recently I've been iterating on a <strong>Flappy Bird clone (Pygame)</strong>, a <strong>local-only micro-challenges app (React Native)</strong>, a <strong>To-Do desktop app (Tkinter)</strong>, and an <strong>AI Resume Analyzer (FastAPI + NLP)</strong>.</p>
-          <p>I’m looking for opportunities where I can contribute immediately, keep learning, and ship features end-to-end.</p>
+          <p>
+            I'm a third-year Applied AI student at Mälardalens University. I like turning ideas into usable products:
+            from small games to business tools and ML-assisted utilities. I value clean code, quick feedback loops,
+            and real users.
+          </p>
+          <p>
+            My current flagship project is <strong>Adaptive Boss Battle</strong>, a React Native learning game with
+            adaptive difficulty, mastery tracking, confidence scoring, and a full session summary. I’ve also built a
+            <strong>Flappy Bird clone (Pygame)</strong>, a <strong>local-only micro-challenges app (React Native)</strong>,
+            a <strong>To-Do desktop app (Tkinter)</strong>, and an <strong>AI Resume Analyzer (FastAPI + NLP)</strong>.
+          </p>
+          <p>
+            I’m looking for opportunities where I can contribute immediately, keep learning, and ship features end-to-end.
+          </p>
         </div>
       </div>
     </section>
@@ -619,56 +680,57 @@
     <section id="projects" aria-labelledby="projects-title">
       <div class="section-head">
         <h2 id="projects-title" class="section-title">Featured Projects</h2>
-        <p class="section-sub">A selection of recent work</p>
+        <p class="section-sub">First: my flagship mobile learning game, followed by selected algorithm, AI, and app projects.</p>
       </div>
       <div class="grid">
-<article class="card">
-  <div class="head">
-    <div class="icon" aria-hidden>🎮</div>
-    <h3 class="title">Adaptive Boss Battle</h3>
-  </div>
+        <!-- Adaptive Boss Battle - Featured -->
+        <article class="card featured-card">
+          <div class="badge-featured">Featured Project</div>
+          <div class="head">
+            <div class="icon" aria-hidden>🎮</div>
+            <h3 class="title">Adaptive Boss Battle</h3>
+          </div>
 
-  <div class="ptype">Mobile App · React Native</div>
+          <div class="ptype">Mobile App · React Native</div>
 
-  <p class="pdesc">
-    AI-inspired adaptive learning game built with React Native & Expo. 
-    Difficulty, mastery, and pacing adjust dynamically based on each user's performance, 
-    confidence, and speed. Includes streak system, levels, analytics, and a complete session summary.
-  </p>
+          <p class="pdesc">
+            AI-inspired adaptive learning game built with React Native & Expo.
+            Difficulty, mastery, and pacing adjust dynamically based on each user's performance,
+            confidence, and speed. Includes streak system, levels, timers, topic mastery tracking,
+            and a complete session summary for each run.
+          </p>
 
-  <div class="ptech">
-    <span class="tag">React Native</span>
-    <span class="tag">TypeScript</span>
-    <span class="tag">Expo</span>
-    <span class="tag">NativeWind</span>
-    <span class="tag">Game Logic</span>
-  </div>
+          <div class="ptech">
+            <span class="tag">React Native</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Expo</span>
+            <span class="tag">NativeWind</span>
+            <span class="tag">Game Logic</span>
+          </div>
 
-  <div class="plink">
-    <a
-      class="btn btn-secondary"
-      href="https://akamazizi.github.io/Adaptive-Boss-Battle/"
-      target="_blank"
-      rel="noreferrer"
-    >
-      Live Demo
-    </a>
-  </div>
+          <div class="plink">
+            <a
+              class="btn btn-secondary"
+              href="https://akamazizi.github.io/Adaptive-Boss-Battle/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Live Demo
+            </a>
+          </div>
 
-  <div class="plink" style="margin-top: 8px;">
-    <a
-      class="btn btn-secondary"
-      href="https://github.com/AkamAzizi/Adaptive-Boss-Battle"
-      target="_blank"
-      rel="noreferrer"
-    >
-      View Code
-    </a>
-  </div>
-</article>
+          <div class="plink" style="margin-top: 8px;">
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/AkamAzizi/Adaptive-Boss-Battle"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View Code
+            </a>
+          </div>
+        </article>
 
-
-        
         <!-- Sudoku Solver -->
         <article class="card">
           <div class="head"><div class="icon" aria-hidden>🧩</div><h3 class="title">Intelligent Sudoku Solver</h3></div>
@@ -677,7 +739,6 @@
           <div class="ptech"><span class="tag">Python</span><span class="tag">Backtracking</span><span class="tag">Algorithm Design</span></div>
           <div class="plink"><a class="btn btn-secondary" href="https://github.com/akamazizi/sudoko.solver" target="_blank" rel="noreferrer">View Code</a></div>
         </article>
-      
 
         <!-- AI Resume Analyzer -->
         <article class="card">
@@ -786,13 +847,16 @@
             </div>
           </div>
           <div>
-            <p class="pdesc">I'm actively seeking internship and entry-level roles in software development and Applied AI. I enjoy shipping features, learning quickly, and collaborating with teams.</p>
+            <p class="pdesc">
+              I'm actively seeking internship and entry-level roles in software development and Applied AI.
+              I enjoy shipping features, learning quickly, and collaborating with teams.
+            </p>
             <div class="skill-card" style="margin:16px 0 20px">
               <h4 class="skill-title" style="margin:0">What I'm looking for</h4>
               <ul style="margin:10px 0 0 18px;color:var(--text-2)">
                 <li>Software developer internships / junior roles</li>
                 <li>Applied AI & ML projects (Python)</li>
-                <li>Full-stack work (FastAPI/React/React Native)</li>
+                <li>Full-stack work (FastAPI / React / React Native)</li>
               </ul>
             </div>
             <a class="btn btn-primary" href="mailto:akam.azizi33@gmail.com" style="width:100%;justify-content:center">Send me a message</a>
