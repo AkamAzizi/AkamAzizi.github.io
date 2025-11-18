@@ -2,39 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
   <title>Akam Azizi — Software Developer (Applied AI)</title>
-  <meta name="description" content="Akam Azizi — Software Developer specializing in Applied AI, React Native, and full-stack apps. Building adaptive learning games and practical tools. Available for internships and junior roles." />
+  <meta
+    name="description"
+    content="Portfolio of Akam Azizi, Software Developer and Applied AI student. Showcasing adaptive learning games, full-stack apps, and algorithmic projects."
+  />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <meta property="og:title" content="Akam Azizi — Software Developer" />
-  <meta property="og:description" content="Applied AI student building practical apps, mobile games, and adaptive learning tools. View projects, skills, and contact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="profile-og.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="icon" href="favicon.ico" />
 
   <style>
     :root {
+      /* Neutral, professional palette */
+      --bg-page: #f5f5f7;
+      --bg-elevated: #ffffff;
+      --bg-soft: #f9fafb;
+
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --text-soft: #9ca3af;
+
+      --border-subtle: #e5e7eb;
+      --border-strong: #d1d5db;
+
       --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #4f46e5;
+      --primary-soft: #eff6ff;
+      --primary-strong: #1d4ed8;
+
       --accent: #0ea5e9;
-
-      --bg: #f3f4f6;
-      --bg-2: #e5e7eb;
-      --glass: #ffffff;
-
-      --text: #0f172a;
-      --text-2: #334155;
-      --muted: #64748b;
-
-      --border: #e2e8f0;
-      --border-2: #bfdbfe;
-
-      --shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
-      --grad: linear-gradient(135deg, #2563eb, #4f46e5);
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --max-width: 1080px;
     }
 
     * {
@@ -47,20 +54,17 @@
 
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Arial, sans-serif;
-      background: radial-gradient(
-          1200px 800px at 50% -10%,
-          #e0f2fe,
-          transparent
-        ),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.7;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Arial, sans-serif;
+      background: radial-gradient(900px 700px at 10% 0, #e5f2ff, transparent),
+        var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
     .visually-hidden {
@@ -72,47 +76,56 @@
       white-space: nowrap;
     }
 
-    /* Nav */
-    nav {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: saturate(140%) blur(14px);
-      border-bottom: 1px solid var(--border);
+    /* Layout shell */
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 16px 48px;
     }
 
-    .nav-wrap {
-      max-width: 1200px;
-      margin: auto;
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 16px;
     }
 
     .logo {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: #111827;
+    }
+
+    .logo span {
       font-weight: 800;
-      letter-spacing: 0.2px;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 20px;
       list-style: none;
       margin: 0;
       padding: 0;
+      font-size: 0.9rem;
     }
 
     .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 500;
     }
 
     .nav-links a:hover {
@@ -121,407 +134,490 @@
 
     .hamburger {
       display: none;
-      gap: 6px;
-      flex-direction: column;
-      border: 0;
+      border: none;
       background: transparent;
+      padding: 6px;
       cursor: pointer;
     }
 
     .hamburger span {
-      width: 22px;
+      display: block;
+      width: 20px;
       height: 2px;
-      background: #0f172a;
-      border-radius: 2px;
-    }
-
-    /* Sections */
-    main {
-      isolation: isolate;
-    }
-
-    section {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 80px 16px;
+      background: #111827;
+      border-radius: 999px;
+      margin: 3px 0;
     }
 
     /* Hero */
-    header.hero {
-      min-height: 100vh;
+    .hero {
+      padding: 48px 16px 32px;
+    }
+
+    .hero-grid {
       display: grid;
-      place-items: center;
-      padding: 120px 16px 80px;
-      background: linear-gradient(
-        180deg,
-        #ffffff,
-        rgba(248, 250, 252, 0.95),
-        transparent
-      );
-    }
-
-    .hero-inner {
-      max-width: 960px;
-      text-align: center;
-    }
-
-    .profile {
-      display: inline-grid;
-      place-items: center;
-      margin-bottom: 20px;
-    }
-
-    .profile img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid rgba(191, 219, 254, 1);
-      box-shadow: var(--shadow);
-    }
-
-    h1.title {
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      margin: 10px 0;
-      background: linear-gradient(135deg, #0f172a 10%, #2563eb 55%, #4f46e5);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p.kicker {
-      color: var(--muted);
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      margin: 6px 0 10px;
-    }
-
-    p.desc {
-      max-width: 680px;
-      margin: 0 auto 18px;
-      color: var(--text-2);
-    }
-
-    .hero-highlight {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      color: #1d4ed8;
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .hero-highlight span {
-      font-weight: 700;
-    }
-
-    .btns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 6px;
-    }
-
-    .btn {
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 2px solid transparent;
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--grad);
-      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
-      color: #ffffff;
-    }
-
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #1d4ed8, #4f46e5);
-    }
-
-    .btn-secondary {
-      background: var(--glass);
-      border-color: var(--border-2);
-      color: var(--primary-dark);
-    }
-
-    .btn-secondary:hover {
-      background: #eff6ff;
-      border-color: #60a5fa;
-    }
-
-    /* About */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 32px;
       align-items: center;
     }
 
-    .about-img img {
-      width: 220px;
-      height: 220px;
-      border-radius: 22px;
-      object-fit: cover;
-      border: 3px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .about p {
-      color: var(--text-2);
-    }
-
-    /* Skills */
-    .skills {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .skill-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-      transition: transform 0.16s ease, box-shadow 0.16s ease,
-        border-color 0.16s ease;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-      border-color: var(--border-2);
-    }
-
-    .skill-title {
-      color: var(--primary-dark);
-      font-weight: 800;
-      margin: 0 0 12px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .tag {
-      border: 1px solid #bfdbfe;
-      background: #eff6ff;
-      color: #1d4ed8;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
-
-    /* Projects */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-      transition: transform 0.16s ease, border-color 0.16s ease,
-        box-shadow 0.16s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-2);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-    }
-
-    .card .head {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
-      background: var(--grad);
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      color: #ffffff;
-    }
-
-    .title {
-      font-weight: 900;
-      margin: 0;
-      color: var(--text);
-    }
-
-    .ptype {
-      font-size: 0.78rem;
-      color: var(--primary-dark);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin: 2px 0 8px;
-    }
-
-    .pdesc {
-      color: var(--text-2);
-      margin: 0 0 14px;
-    }
-
-    .ptech {
+    .hero-badge-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 0 0 16px;
+      margin-bottom: 10px;
     }
 
-    .plink {
-      display: flex;
-      gap: 10px;
-    }
-
-    .plink .btn {
-      flex: 1;
-      justify-content: center;
-    }
-
-    /* Featured project styling */
-    .featured-card {
-      border-color: #2563eb;
-      box-shadow: 0 22px 60px rgba(37, 99, 235, 0.18);
-      position: relative;
-    }
-
-    .badge-featured {
+    .badge-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 4px 10px;
       border-radius: 999px;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      color: #1d4ed8;
-      font-size: 0.78rem;
-      font-weight: 700;
-      margin-bottom: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .badge-primary {
+      border-color: #bfdbfe;
+      background: var(--primary-soft);
+      color: var(--primary-strong);
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      font-weight: 800;
+      margin: 4px 0 8px;
+      color: #0b1120;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-body {
+      font-size: 0.98rem;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      max-width: 36rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-strong);
+      border-color: var(--primary-strong);
+    }
+
+    .btn-ghost {
+      background: white;
+      border-color: var(--border-subtle);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--border-strong);
+      background: #f9fafb;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 6px;
+    }
+
+    /* Hero side card (featured project mini preview) */
+    .hero-panel {
+      background: white;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 16px;
+    }
+
+    .panel-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary-strong);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .panel-title h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .panel-tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .panel-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .metric {
+      flex: 1 1 80px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .metric-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-soft);
+      margin-bottom: 3px;
+    }
+
+    .metric-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .panel-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      gap: 8px;
+    }
+
+    .panel-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      color: #4b5563;
+    }
+
+    .panel-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-strong);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .panel-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    section {
+      padding: 40px 16px 0;
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0 0 2px;
+      color: #0b1120;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin: 0;
+    }
+
+    /* About */
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    .about-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-text p {
+      margin: 0 0 10px;
+      font-size: 0.96rem;
+      color: var(--text-main);
+    }
+
+    .about-aside {
+      display: grid;
+      gap: 10px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-soft);
+      color: #4b5563;
+    }
+
+    .pill-strong {
+      border-color: #bfdbfe;
+      background: var(--primary-soft);
+      color: var(--primary-strong);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 16px 14px;
+    }
+
+    .skill-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: #111827;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .project-name {
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin: 0;
+      color: #111827;
+    }
+
+    .project-type {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-soft);
+      font-weight: 600;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .project-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-strong);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: #f9fafb;
+    }
+
+    .project-link:hover {
+      border-color: #bfdbfe;
+      background: var(--primary-soft);
     }
 
     /* Contact */
-    .contact-wrap {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      max-width: 960px;
-      margin: auto;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-grid {
+    .contact-card {
+      margin-top: 12px;
+      background: white;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
       gap: 24px;
+      align-items: flex-start;
     }
 
-    .citem {
+    .contact-text p {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .contact-item {
       display: flex;
-      gap: 12px;
-      align-items: center;
-      background: #f9fafb;
-      padding: 14px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
+      flex-direction: column;
+      gap: 2px;
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .contact-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-soft);
+      font-weight: 600;
     }
 
     /* Footer */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 16px;
-      text-align: center;
-      color: var(--muted);
-      background: #f9fafb;
+      padding: 28px 16px 32px;
+      border-top: 1px solid var(--border-subtle);
       margin-top: 40px;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      text-align: center;
+      background: #f9fafb;
     }
 
     footer a {
-      color: var(--primary-dark);
-      text-decoration: none;
-      font-weight: 500;
+      color: var(--primary-strong);
     }
 
     footer a:hover {
       text-decoration: underline;
     }
 
-    /* Section headings */
-    .section-head {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 900;
-      background: linear-gradient(135deg, #0f172a, #2563eb);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 0;
-    }
-
-    .section-sub {
-      color: var(--muted);
-      margin: 8px auto 0;
-      max-width: 640px;
-    }
-
     /* Responsive */
-    @media (min-width: 768px) {
-      .about {
-        grid-template-columns: 1fr 2fr;
-        gap: 40px;
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
 
-      .skills {
-        grid-template-columns: repeat(2, 1fr);
+      .hero-panel {
+        order: -1;
       }
 
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
+      .about-layout {
+        grid-template-columns: minmax(0, 1fr);
       }
 
-      .featured-card {
-        grid-column: 1 / -1;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr 1.2fr;
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
@@ -531,48 +627,47 @@
       }
 
       .hamburger {
-        display: flex;
+        display: block;
       }
 
       .nav-open .nav-links {
         display: flex;
         position: absolute;
-        top: 56px;
-        left: 0;
+        top: 42px;
         right: 0;
-        background: #ffffff;
-        padding: 12px 16px;
-        border-bottom: 1px solid var(--border);
+        left: 0;
+        padding: 10px 16px 12px;
+        background: white;
+        border-bottom: 1px solid var(--border-subtle);
         flex-direction: column;
-        gap: 4px;
+        gap: 8px;
       }
 
-      .nav-open .nav-links li {
-        padding: 8px 2px;
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    /* Accessibility */
+    /* Focus */
     :focus-visible {
-      outline: 2px dashed var(--accent);
-      outline-offset: 3px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
   </style>
 </head>
 <body>
   <a class="visually-hidden" href="#main">Skip to content</a>
-  <nav aria-label="Primary">
-    <div class="nav-wrap">
-      <div class="logo" aria-label="Akam Azizi Home">Akam Azizi</div>
-      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" id="menuBtn">
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="logo"><span>Akam</span> Azizi</div>
+      <button
+        class="hamburger"
+        id="menuBtn"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
@@ -584,340 +679,543 @@
     </div>
   </nav>
 
-  <header class="hero" id="home">
-    <div class="hero-inner">
-      <div class="profile">
-        <img src="profil.jpg" width="320" height="320" alt="Portrait of Akam Azizi" loading="lazy" />
-      </div>
-      <div class="hero-highlight">
-        <span>Featured:</span> Adaptive Boss Battle — React Native adaptive learning game
-      </div>
-      <h1 class="title">Full-Stack & Applied AI Developer</h1>
-      <p class="kicker">3rd-year Applied AI @ MDU • Open to internships & junior roles</p>
-      <p class="desc">
-        I build practical apps and interactive experiences: React/React Native front-ends, Python back-ends,
-        and small AI tools. Recently I’ve focused on adaptive learning and game-inspired interfaces.
-      </p>
-      <div class="btns" role="group" aria-label="Primary actions">
-        <a class="btn btn-primary" href="#projects">View My Work</a>
-        <a class="btn btn-secondary" href="#contact">Get In Touch</a>
-      </div>
-    </div>
-  </header>
-
-  <main id="main" tabindex="-1">
-    <!-- About -->
-    <section id="about" aria-labelledby="about-title">
-      <div class="section-head">
-        <h2 id="about-title" class="section-title">About Me</h2>
-        <p class="section-sub">Driven by curiosity • Focused on shipping value</p>
-      </div>
-      <div class="about">
-        <div class="about-img">
-          <img src="profil.jpg" width="440" height="440" alt="Akam working at a laptop" loading="lazy" />
-        </div>
+  <div class="shell">
+    <!-- Hero -->
+    <header class="hero" id="home">
+      <div class="hero-grid">
         <div>
-          <p>
-            I'm a third-year Applied AI student at Mälardalens University. I like turning ideas into usable products:
-            from small games to business tools and ML-assisted utilities. I value clean code, quick feedback loops,
-            and real users.
+          <div class="hero-badge-row">
+            <span class="badge-pill badge-primary">Featured: Adaptive Boss Battle</span>
+            <span class="badge-pill">Applied AI · React Native · Game UX</span>
+          </div>
+          <h1 class="hero-title">Software Developer in Applied AI</h1>
+          <p class="hero-subtitle">
+            3rd-year Applied AI student at Mälardalens University · Open to internships & junior roles.
           </p>
-          <p>
-            My current flagship project is <strong>Adaptive Boss Battle</strong>, a React Native learning game with
-            adaptive difficulty, mastery tracking, confidence scoring, and a full session summary. I’ve also built a
-            <strong>Flappy Bird clone (Pygame)</strong>, a <strong>local-only micro-challenges app (React Native)</strong>,
-            a <strong>To-Do desktop app (Tkinter)</strong>, and an <strong>AI Resume Analyzer (FastAPI + NLP)</strong>.
+          <p class="hero-body">
+            I build small, focused products: adaptive learning games, productivity tools, and AI-assisted utilities.
+            My projects combine solid engineering (Python, React/React Native, FastAPI) with clear user flows
+            and fast iteration.
           </p>
-          <p>
-            I’m looking for opportunities where I can contribute immediately, keep learning, and ship features end-to-end.
-          </p>
+          <div class="hero-buttons" role="group" aria-label="Primary actions">
+            <a href="#featured" class="btn btn-primary">View featured project</a>
+            <a href="#projects" class="btn btn-ghost">See all projects</a>
+          </div>
+          <div class="hero-meta">
+            Recent focus: adaptive learning, confidence calibration, and game-inspired feedback loops.
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Skills -->
-    <section id="skills" aria-labelledby="skills-title">
-      <div class="section-head">
-        <h2 id="skills-title" class="section-title">Skills & Technologies</h2>
-        <p class="section-sub">Tools I use to design, build, and ship</p>
-      </div>
-      <div class="skills">
-        <article class="skill-card">
-          <h3 class="skill-title">Programming Languages</h3>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span>
-            <span class="tag">C#</span><span class="tag">SQL</span><span class="tag">HTML/CSS</span><span class="tag">Java</span>
+        <aside class="hero-panel" id="featured">
+          <div class="panel-label">Flagship Project</div>
+          <div class="panel-title">
+            <h3>Adaptive Boss Battle</h3>
+            <span class="project-type">Mobile learning game</span>
           </div>
-        </article>
-        <article class="skill-card">
-          <h3 class="skill-title">Frameworks & Libraries</h3>
-          <div class="tags">
-            <span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">React</span><span class="tag">React Native</span>
-            <span class="tag">Material UI</span><span class="tag">Pygame</span><span class="tag">Tkinter</span>
-            <span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">spaCy</span>
-          </div>
-        </article>
-        <article class="skill-card">
-          <h3 class="skill-title">AI & CS Fundamentals</h3>
-          <div class="tags">
-            <span class="tag">Machine Learning</span><span class="tag">Applied AI</span><span class="tag">NLP</span>
-            <span class="tag">Data Analysis</span><span class="tag">Backtracking</span><span class="tag">MiniMax</span>
-            <span class="tag">Graph Algorithms</span><span class="tag">Dynamic Programming</span>
-          </div>
-        </article>
-        <article class="skill-card">
-          <h3 class="skill-title">Platforms & Tools</h3>
-          <div class="tags">
-            <span class="tag">Git/GitHub</span><span class="tag">Docker</span><span class="tag">Linux</span>
-            <span class="tag">SQLite</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
-            <span class="tag">Heroku</span><span class="tag">Appwrite</span><span class="tag">VS Code</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" aria-labelledby="projects-title">
-      <div class="section-head">
-        <h2 id="projects-title" class="section-title">Featured Projects</h2>
-        <p class="section-sub">First: my flagship mobile learning game, followed by selected algorithm, AI, and app projects.</p>
-      </div>
-      <div class="grid">
-        <!-- Adaptive Boss Battle - Featured -->
-        <article class="card featured-card">
-          <div class="badge-featured">Featured Project</div>
-          <div class="head">
-            <div class="icon" aria-hidden>🎮</div>
-            <h3 class="title">Adaptive Boss Battle</h3>
-          </div>
-
-          <div class="ptype">Mobile App · React Native</div>
-
-          <p class="pdesc">
-            AI-inspired adaptive learning game built with React Native & Expo.
-            Difficulty, mastery, and pacing adjust dynamically based on each user's performance,
-            confidence, and speed. Includes streak system, levels, timers, topic mastery tracking,
-            and a complete session summary for each run.
+          <p class="panel-tagline">
+            React Native + Expo game that adapts difficulty, mastery, and pacing based on user performance,
+            confidence, and speed.
           </p>
 
-          <div class="ptech">
-            <span class="tag">React Native</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Expo</span>
-            <span class="tag">NativeWind</span>
-            <span class="tag">Game Logic</span>
+          <div class="panel-metrics">
+            <div class="metric">
+              <div class="metric-label">Adaptive Engine</div>
+              <div class="metric-value">Difficulty, mastery, streaks</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Session Analytics</div>
+              <div class="metric-value">Accuracy, confidence, timing</div>
+            </div>
           </div>
 
-          <div class="plink">
+          <div class="panel-footer">
+            <div class="panel-tech">
+              <span class="chip">React Native</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">Expo</span>
+              <span class="chip">Game Logic</span>
+            </div>
             <a
-              class="btn btn-secondary"
               href="https://akamazizi.github.io/Adaptive-Boss-Battle/"
               target="_blank"
               rel="noreferrer"
+              class="panel-link"
             >
-              Live Demo
+              Live demo →
             </a>
           </div>
+        </aside>
+      </div>
+    </header>
 
-          <div class="plink" style="margin-top: 8px;">
+    <main id="main" tabindex="-1">
+      <!-- About -->
+      <section id="about" aria-labelledby="about-title">
+        <div class="section-header">
+          <h2 class="section-title" id="about-title">About</h2>
+          <p class="section-sub">A quick snapshot of who I am and what I build.</p>
+        </div>
+        <div class="about-layout">
+          <article class="about-card about-text">
+            <p>
+              I’m a third-year Applied AI student at Mälardalens University. I enjoy taking ideas from
+              “sketch in a notebook” to something that real people can click, tap, and use.
+            </p>
+            <p>
+              My current flagship is <strong>Adaptive Boss Battle</strong>, a mobile learning game that evaluates
+              users on accuracy, confidence, and speed, then adjusts difficulty, mastery, and pacing in real time.
+            </p>
+            <p>
+              Outside of games, I’ve built an <strong>AI Resume Analyzer</strong> (FastAPI + NLP),
+              a <strong>Micro Challenges</strong> habit app in React Native, a <strong>Flappy Bird clone</strong>,
+              a <strong>Snake game</strong>, and several algorithm projects (Sudoku solver, Knapsack suite, Mancala AI).
+            </p>
+            <p>
+              I like roles where I can contribute quickly, own small features end-to-end, and keep learning by
+              shipping and getting feedback.
+            </p>
+          </article>
+
+          <aside class="about-aside">
+            <article class="about-card">
+              <h3 class="skill-title">Currently focused on</h3>
+              <div class="pill-list" style="margin-bottom:8px;">
+                <span class="pill pill-strong">React Native apps</span>
+                <span class="pill pill-strong">Applied AI in products</span>
+                <span class="pill">Clean, readable code</span>
+                <span class="pill">Game-inspired UX</span>
+              </div>
+              <h3 class="skill-title" style="margin-top:10px;">Looking for</h3>
+              <div class="pill-list">
+                <span class="pill">Internships / junior roles</span>
+                <span class="pill">Software dev (Python / JS)</span>
+                <span class="pill">Full-stack or mobile</span>
+              </div>
+            </article>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" aria-labelledby="skills-title">
+        <div class="section-header">
+          <h2 class="section-title" id="skills-title">Skills</h2>
+          <p class="section-sub">The main tools and concepts I use to ship projects.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3 class="skill-title">Languages</h3>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">C#</span>
+              <span class="tag">SQL</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">Java</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3 class="skill-title">Frameworks & Libraries</h3>
+            <div class="tags">
+              <span class="tag">FastAPI</span>
+              <span class="tag">Flask</span>
+              <span class="tag">React</span>
+              <span class="tag">React Native</span>
+              <span class="tag">Pygame</span>
+              <span class="tag">Tkinter</span>
+              <span class="tag">Material UI</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3 class="skill-title">AI & CS Fundamentals</h3>
+            <div class="tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Applied AI</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Backtracking</span>
+              <span class="tag">MiniMax</span>
+              <span class="tag">Graph Algorithms</span>
+              <span class="tag">Dynamic Programming</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3 class="skill-title">Tools & Platforms</h3>
+            <div class="tags">
+              <span class="tag">Git / GitHub</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Linux</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Heroku</span>
+              <span class="tag">Appwrite</span>
+              <span class="tag">VS Code</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="section-header">
+          <h2 class="section-title" id="projects-title">Projects</h2>
+          <p class="section-sub">A selection of recent work in games, AI, and tooling.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Adaptive Boss Battle (also featured above, but listed here too) -->
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-name">Adaptive Boss Battle</h3>
+              <span class="project-type">Mobile · React Native</span>
+            </div>
+            <p class="project-desc">
+              Adaptive learning game that adjusts difficulty, mastery, and pacing based on accuracy, confidence,
+              and answer speed. Includes streaks, levels, timers, and a full session summary.
+            </p>
+            <div class="project-tech">
+              <span class="tag">React Native</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Expo</span>
+              <span class="tag">NativeWind</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="project-link"
+                href="https://akamazizi.github.io/Adaptive-Boss-Battle/"
+                target="_blank"
+                rel="noreferrer"
+              >Live demo</a>
+              <a
+                class="project-link"
+                href="https://github.com/AkamAzizi/Adaptive-Boss-Battle"
+                target="_blank"
+                rel="noreferrer"
+              >View code</a>
+            </div>
+          </article>
+
+          <!-- Sudoku Solver -->
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-name">Intelligent Sudoku Solver</h3>
+              <span class="project-type">Algorithms</span>
+            </div>
+            <p class="project-desc">
+              Sudoku solver using recursive backtracking and constraint propagation, with timing analysis
+              across multiple puzzle suites.
+            </p>
+            <div class="project-tech">
+              <span class="tag">Python</span>
+              <span class="tag">Backtracking</span>
+              <span class="tag">Algorithm Design</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="project-link"
+                href="https://github.com/akamazizi/sudoko.solver"
+                target="_blank"
+                rel="noreferrer"
+              >View code</a>
+            </div>
+          </article>
+
+          <!-- AI Resume Analyzer -->
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-name">AI Resume Analyzer</h3>
+              <span class="project-type">Full-stack</span>
+            </div>
+            <p class="project-desc">
+              FastAPI + React app that scores resumes against job descriptions, highlights missing keywords,
+              and explains why a CV might fail an ATS-style filter.
+            </p>
+            <div class="project-tech">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">spaCy</span>
+              <span class="tag">React</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="project-link"
+                href="https://github.com/AkamAzizi/ai-resume-analyzer"
+                target="_blank"
+                rel="noreferrer"
+              >View code</a>
+            </div>
+          </article>
+
+          <!-- Micro Challenges -->
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-name">Micro Challenges</h3>
+              <span class="project-type">Mobile · Habits</span>
+            </div>
+            <p class="project-desc">
+              Local-only habit app: one simple challenge at a time, max three per hour, with optional
+              local notifications and streak logic.
+            </p>
+            <div class="project-tech">
+              <span class="tag">React Native</span>
+              <span class="tag">Expo</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">AsyncStorage</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="project-link"
+                href="https://github.com/akamazizi/micro-challenges"
+                target="_blank"
+                rel="noreferrer"
+              >View code</a>
+            </div>
+          </article>
+
+          <!-- Mancala AI -->
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-name">MiniMax Mancala AI</h3>
+              <span class="project-type">Game AI</span>
+            </div>
+            <p class="project-desc">
+              Mancala opponent implemented with MiniMax and alpha-beta pruning, supporting multiple difficulty
+              levels and fast evaluations.
+            </p>
+            <div class="project-tech">
+              <span class="tag">Python</span>
+              <span class="tag">MiniMax</span>
+              <span class="tag">Alpha-Beta</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="project-link"
+                href="https://github.com/akamazizi/minimax-mancala-ai"
+                target="_blank"
+                rel="noreferrer"
+              >View code</a>
+            </div>
+          </article>
+
+          <!-- Knapsack -->
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-name">Knapsack Optimization Suite</h3>
+              <span class="project-type">Optimization</span>
+            </div>
+            <p class="project-desc">
+              0/1 Knapsack solver with DP and BFS/DFS variants, plus comparisons and benchmarks for different
+              input sizes.
+            </p>
+            <div class="project-tech">
+              <span class="tag">Python</span>
+              <span class="tag">Dynamic Programming</span>
+              <span class="tag">BFS / DFS</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="project-link"
+                href="https://github.com/akamazizi/Knapsack-Problem-Solver"
+                target="_blank"
+                rel="noreferrer"
+              >View code</a>
+            </div>
+          </article>
+
+          <!-- Snake -->
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-name">Classic Snake Game</h3>
+              <span class="project-type">Game</span>
+            </div>
+            <p class="project-desc">
+              Pygame implementation with smooth controls, score tracking, and increasing difficulty over time.
+            </p>
+            <div class="project-tech">
+              <span class="tag">Python</span>
+              <span class="tag">Pygame</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="project-link"
+                href="https://github.com/AkamAzizi/SnakeGame"
+                target="_blank"
+                rel="noreferrer"
+              >View code</a>
+            </div>
+          </article>
+
+          <!-- Barbershop -->
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-name">Barbershop Queue Manager</h3>
+              <span class="project-type">Business app</span>
+            </div>
+            <p class="project-desc">
+              Queue management tool with wait-time estimates, notifications, and a simple staff dashboard for a
+              real barbershop.
+            </p>
+            <div class="project-tech">
+              <span class="tag">Python</span>
+              <span class="tag">Tkinter</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="project-link"
+                href="https://github.com/AkamAzizi/barbershop-queue-app"
+                target="_blank"
+                rel="noreferrer"
+              >View code</a>
+            </div>
+          </article>
+
+          <!-- Flappy Bird -->
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-name">Flappy Bird Clone</h3>
+              <span class="project-type">Game</span>
+            </div>
+            <p class="project-desc">
+              Class-based Flappy Bird clone with collisions, difficulty ramp-up, and parallax background using Pygame.
+            </p>
+            <div class="project-tech">
+              <span class="tag">Python</span>
+              <span class="tag">Pygame</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="project-link"
+                href="https://github.com/akamazizi/Flappy-bird-Clone"
+                target="_blank"
+                rel="noreferrer"
+              >View code</a>
+            </div>
+          </article>
+
+          <!-- To-Do -->
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-name">Smart To-Do Manager</h3>
+              <span class="project-type">Desktop</span>
+            </div>
+            <p class="project-desc">
+              Tkinter desktop app with priorities, due dates, and file persistence. Focus on a clean and simple UI.
+            </p>
+            <div class="project-tech">
+              <span class="tag">Python</span>
+              <span class="tag">Tkinter</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="project-link"
+                href="https://github.com/akamazizi/to-do-list"
+                target="_blank"
+                rel="noreferrer"
+              >View code</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="section-header">
+          <h2 class="section-title" id="contact-title">Contact</h2>
+          <p class="section-sub">Best ways to reach me for roles, projects, or questions.</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-text">
+            <p>
+              I’m currently open to internships and junior software development roles, especially where I can work
+              with Python, React/React Native, and Applied AI.
+            </p>
+            <p>
+              If you think my projects could be useful for your team — or you just want to talk about adaptive
+              learning, AI, or game-like UX — feel free to reach out.
+            </p>
             <a
-              class="btn btn-secondary"
-              href="https://github.com/AkamAzizi/Adaptive-Boss-Battle"
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:akam.azizi33@gmail.com"
+              class="btn btn-primary"
+              style="margin-top:8px; width:100%; justify-content:center;"
             >
-              View Code
+              Email me
             </a>
           </div>
-        </article>
-
-        <!-- Sudoku Solver -->
-        <article class="card">
-          <div class="head"><div class="icon" aria-hidden>🧩</div><h3 class="title">Intelligent Sudoku Solver</h3></div>
-          <div class="ptype">Algorithm Implementation</div>
-          <p class="pdesc">Recursive backtracking + constraint propagation. Includes timing analysis and multiple puzzle suites.</p>
-          <div class="ptech"><span class="tag">Python</span><span class="tag">Backtracking</span><span class="tag">Algorithm Design</span></div>
-          <div class="plink"><a class="btn btn-secondary" href="https://github.com/akamazizi/sudoko.solver" target="_blank" rel="noreferrer">View Code</a></div>
-        </article>
-
-        <!-- AI Resume Analyzer -->
-        <article class="card">
-          <div class="head"><div class="icon" aria-hidden>📊</div><h3 class="title">AI Resume Analyzer</h3></div>
-          <div class="ptype">Full-Stack Application</div>
-          <p class="pdesc">NLP-powered scoring versus job descriptions. Highlights missing keywords; FastAPI backend + React front-end.</p>
-          <div class="ptech"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">scikit-learn</span><span class="tag">spaCy</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
-          <div class="plink"><a class="btn btn-secondary" href="https://github.com/AkamAzizi/ai-resume-analyzer" target="_blank" rel="noreferrer">View Code</a></div>
-        </article>
-
-        <!-- Micro Challenges -->
-        <article class="card">
-          <div class="head"><div class="icon" aria-hidden>⚡️</div><h3 class="title">Micro Challenges</h3></div>
-          <div class="ptype">Mobile App</div>
-          <p class="pdesc">Local-only habit app: one small challenge at a time, max 3/hour, optional local notifications.</p>
-          <div class="ptech"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">TypeScript</span><span class="tag">AsyncStorage</span></div>
-          <div class="plink"><a class="btn btn-secondary" href="https://github.com/akamazizi/micro-challenges" target="_blank" rel="noreferrer">View Code</a></div>
-        </article>
-
-        <!-- Mancala -->
-        <article class="card">
-          <div class="head"><div class="icon" aria-hidden>🤖</div><h3 class="title">MiniMax Mancala AI</h3></div>
-          <div class="ptype">Artificial Intelligence</div>
-          <p class="pdesc">AI opponent with MiniMax + alpha-beta pruning. Multiple difficulty levels and fast evaluation.</p>
-          <div class="ptech"><span class="tag">Python</span><span class="tag">MiniMax</span><span class="tag">Alpha-Beta</span></div>
-          <div class="plink"><a class="btn btn-secondary" href="https://github.com/akamazizi/minimax-mancala-ai" target="_blank" rel="noreferrer">View Code</a></div>
-        </article>
-
-        <!-- Knapsack -->
-        <article class="card">
-          <div class="head"><div class="icon" aria-hidden>📦</div><h3 class="title">Knapsack Optimization Suite</h3></div>
-          <div class="ptype">Optimization Algorithm</div>
-          <p class="pdesc">0/1 Knapsack with BFS/DFS variants, comparisons and benchmarks.</p>
-          <div class="ptech"><span class="tag">Python</span><span class="tag">Dynamic Programming</span><span class="tag">BFS/DFS</span></div>
-          <div class="plink"><a class="btn btn-secondary" href="https://github.com/akamazizi/Knapsack-Problem-Solver" target="_blank" rel="noreferrer">View Code</a></div>
-        </article>
-
-        <!-- Snake -->
-        <article class="card">
-          <div class="head"><div class="icon" aria-hidden>🐍</div><h3 class="title">Classic Snake Game</h3></div>
-          <div class="ptype">Game Development</div>
-          <p class="pdesc">Smooth controls, score tracking, and progressive difficulty using Pygame.</p>
-          <div class="ptech"><span class="tag">Python</span><span class="tag">Pygame</span></div>
-          <div class="plink"><a class="btn btn-secondary" href="https://github.com/AkamAzizi/SnakeGame" target="_blank" rel="noreferrer">View Code</a></div>
-        </article>
-
-        <!-- Barbershop -->
-        <article class="card">
-          <div class="head"><div class="icon" aria-hidden>✂️</div><h3 class="title">Barbershop Queue Manager</h3></div>
-          <div class="ptype">Business Application</div>
-          <p class="pdesc">Queue management with wait-time estimates, notifications, and staff dashboard.</p>
-          <div class="ptech"><span class="tag">Python</span><span class="tag">Tkinter</span></div>
-          <div class="plink"><a class="btn btn-secondary" href="https://github.com/AkamAzizi/barbershop-queue-app" target="_blank" rel="noreferrer">View Code</a></div>
-        </article>
-
-        <!-- Flappy Bird -->
-        <article class="card">
-          <div class="head"><div class="icon" aria-hidden>🐦</div><h3 class="title">Flappy Bird Clone</h3></div>
-          <div class="ptype">Game Development</div>
-          <p class="pdesc">Class-based, delta-timed clone with collisions, difficulty ramp, and parallax background.</p>
-          <div class="ptech"><span class="tag">Python</span><span class="tag">Pygame</span></div>
-          <div class="plink"><a class="btn btn-secondary" href="https://github.com/akamazizi/Flappy-bird-Clone" target="_blank" rel="noreferrer">View Code</a></div>
-        </article>
-
-        <!-- To-Do -->
-        <article class="card">
-          <div class="head"><div class="icon" aria-hidden>📝</div><h3 class="title">Smart To-Do Manager</h3></div>
-          <div class="ptype">Productivity</div>
-          <p class="pdesc">Tasks with priorities and due dates, persisted to file. Polished Tkinter UI.</p>
-          <div class="ptech"><span class="tag">Python</span><span class="tag">Tkinter</span></div>
-          <div class="plink"><a class="btn btn-secondary" href="https://github.com/akamazizi/to-do-list" target="_blank" rel="noreferrer">View Code</a></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" aria-labelledby="contact-title">
-      <div class="section-head">
-        <h2 id="contact-title" class="section-title">Let's Work Together</h2>
-        <p class="section-sub">Open to internships, junior roles, and collaborations</p>
-      </div>
-      <div class="contact-wrap">
-        <div class="contact-grid">
           <div>
-            <h3 class="skill-title" style="margin-top:0">Get in touch</h3>
-            <div class="citem">
-              <div class="icon" aria-hidden>📧</div>
-              <div>
-                <div><strong>Email</strong></div>
+            <div class="contact-list">
+              <div class="contact-item">
+                <span class="contact-label">Email</span>
                 <a href="mailto:akam.azizi33@gmail.com">akam.azizi33@gmail.com</a>
               </div>
-            </div>
-            <div class="citem">
-              <div class="icon" aria-hidden>💼</div>
-              <div>
-                <div><strong>LinkedIn</strong></div>
-                <a href="https://www.linkedin.com/in/akam-azizi-932897213/" target="_blank" rel="noreferrer">Connect with me</a>
+              <div class="contact-item">
+                <span class="contact-label">LinkedIn</span>
+                <a
+                  href="https://www.linkedin.com/in/akam-azizi-932897213/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  linkedin.com/in/akam-azizi-932897213
+                </a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">GitHub</span>
+                <a
+                  href="https://github.com/akamazizi"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  github.com/akamazizi
+                </a>
               </div>
             </div>
-            <div class="citem">
-              <div class="icon" aria-hidden>🐙</div>
-              <div>
-                <div><strong>GitHub</strong></div>
-                <a href="https://github.com/akamazizi" target="_blank" rel="noreferrer">akamazizi</a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p class="pdesc">
-              I'm actively seeking internship and entry-level roles in software development and Applied AI.
-              I enjoy shipping features, learning quickly, and collaborating with teams.
-            </p>
-            <div class="skill-card" style="margin:16px 0 20px">
-              <h4 class="skill-title" style="margin:0">What I'm looking for</h4>
-              <ul style="margin:10px 0 0 18px;color:var(--text-2)">
-                <li>Software developer internships / junior roles</li>
-                <li>Applied AI & ML projects (Python)</li>
-                <li>Full-stack work (FastAPI / React / React Native)</li>
-              </ul>
-            </div>
-            <a class="btn btn-primary" href="mailto:akam.azizi33@gmail.com" style="width:100%;justify-content:center">Send me a message</a>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer>
-    <p>
-      <a href="https://github.com/akamazizi" target="_blank" rel="noreferrer">GitHub</a> •
-      <a href="https://www.linkedin.com/in/akam-azizi-932897213/" target="_blank" rel="noreferrer">LinkedIn</a> •
-      <a href="mailto:akam.azizi33@gmail.com">Email</a>
-    </p>
-    <p style="opacity:.7;margin-top:10px">© <span id="y"></span> Akam Azizi — Built with HTML & CSS</p>
-  </footer>
+    <footer>
+      <p>
+        <a href="https://github.com/akamazizi" target="_blank" rel="noreferrer">GitHub</a> ·
+        <a
+          href="https://www.linkedin.com/in/akam-azizi-932897213/"
+          target="_blank"
+          rel="noreferrer"
+        >LinkedIn</a> ·
+        <a href="mailto:akam.azizi33@gmail.com">Email</a>
+      </p>
+      <p style="margin-top:6px;">
+        © <span id="year"></span> Akam Azizi — Portfolio built with HTML & CSS.
+      </p>
+    </footer>
+  </div>
 
   <script>
-    // Mobile nav toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
-    menuBtn?.addEventListener('click', () => {
-      document.body.classList.toggle('nav-open');
-      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-      menuBtn.setAttribute('aria-expanded', String(!expanded));
-    });
+    // Mobile nav
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
 
-    // Smooth in-page scrolling with focus management
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href');
-        const target = id && document.querySelector(id);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          if (id === '#main') target.focus({ preventScroll: true });
-          document.body.classList.remove('nav-open');
-          menuBtn?.setAttribute('aria-expanded','false');
-        }
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener("click", () => {
+        document.body.classList.toggle("nav-open");
+        const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+        menuBtn.setAttribute("aria-expanded", String(!expanded));
       });
-    });
 
-    // Copyright year
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", () => {
+          document.body.classList.remove("nav-open");
+          menuBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
 
-  <!-- JSON-LD Person schema for richer search previews -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Akam Azizi",
-    "jobTitle": "Software Developer (Applied AI)",
-    "email": "mailto:akam.azizi33@gmail.com",
-    "url": "https://akamazizi.github.io",
-    "sameAs": [
-      "https://github.com/akamazizi",
-      "https://www.linkedin.com/in/akam-azizi-932897213/"
-    ]
-  }
+    // Year
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
