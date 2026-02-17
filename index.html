@@ -205,7 +205,7 @@
                     </h2>
                     <div class="w-20 h-1.5 bg-primary-600 rounded-full mb-8"></div>
                     <div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-slate-100 group">
-                        <img src="https://picsum.photos/seed/akam_profile/600/800" alt="Akam Azizi" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105">
+                        <img src="profileee.jpeg" alt="Akam Azizi" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105">
                         <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
                     </div>
                 </div>
@@ -215,10 +215,13 @@
                     <div class="reveal delay-100">
                         <h3 class="text-2xl font-bold text-slate-900 mb-4">The Engineer</h3>
                         <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                            I am a 3rd-year <strong class="text-slate-900">Applied AI Student</strong> at Mälardalens University with a relentless drive for problem-solving. My approach is grounded in engineering principles—breaking down complex requirements into efficient, maintainable systems.
+                            <strong class="text-slate-900">AI Engineer and Full-Stack Developer</strong> focused on applied AI, multi-agent systems, and real-world product development.
+                        </p>
+                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                            Currently working at an AI startup, building end-to-end AI features including multi-agent content systems, LLM orchestration, and trend retrieval pipelines that automate real business workflows.
                         </p>
                         <p class="text-lg text-slate-600 leading-relaxed">
-                            From optimizing algorithm complexity in Python to crafting pixel-perfect interfaces in React, I bridge the gap between theoretical AI models and real-world application utility.
+                            Background in Python, full-stack engineering, algorithm design, and applied machine learning, with hands-on experience across backend systems, APIs, and AI-first product architecture.
                         </p>
                     </div>
 
@@ -333,6 +336,113 @@
     <!-- Projects Section -->
     <section id="projects" class="py-24 md:py-32 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
+            <!-- Featured Projects (Private) -->
+            <div class="reveal mb-4">
+                <h3 class="text-2xl font-bold text-slate-900 mb-2">Featured Projects (Private)</h3>
+                <p class="text-slate-600 max-w-2xl text-base mb-10">
+                    Flagship systems I'm building. Repositories are private; demos or walkthroughs available on request.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+                <!-- AI Document Assistant -->
+                <article class="reveal delay-100 group h-full flex flex-col bg-slate-50/50 rounded-3xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-2">
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 text-slate-900 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                                <i data-lucide="file-search" class="w-6 h-6"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-200 text-slate-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Private</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">AI Document Assistant (RAG)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
+                            Document intelligence assistant that answers questions across internal PDFs/notes using RAG (retrieval + grounded generation).
+                        </p>
+                        <ul class="text-slate-500 text-xs space-y-1 mb-4">
+                            <li>• Semantic chunking, embeddings & retrieval</li>
+                            <li>• Source-grounded answers (citations)</li>
+                            <li>• Upload → query → feedback workflow</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">Python</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">FastAPI</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">RAG</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">Vector DB</span>
+                        </div>
+                        <div class="flex items-center gap-3 pt-6 border-t border-slate-200 mt-auto">
+                            <a href="https://github.com/AkamAzizi/ai-knowledge-assistant" target="_blank" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors">
+                                <i data-lucide="github" class="w-4 h-4"></i> Repo
+                            </a>
+                            <span class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 text-slate-500 text-sm font-medium rounded-xl">Demo on request</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Offert AI -->
+                <article class="reveal delay-200 group h-full flex flex-col bg-slate-50/50 rounded-3xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-2">
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 text-slate-900 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                                <i data-lucide="file-output" class="w-6 h-6"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-200 text-slate-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Private</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">Offert AI</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
+                            AI-powered quote and proposal generator that turns structured inputs into consistent, customer-ready outputs.
+                        </p>
+                        <ul class="text-slate-500 text-xs space-y-1 mb-4">
+                            <li>• Template-driven output (PDF / Word-ready)</li>
+                            <li>• Guardrails for tone and formatting</li>
+                            <li>• Fast iteration across industries</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">AI</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">PDF</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">LLMs</span>
+                        </div>
+                        <div class="flex items-center gap-3 pt-6 border-t border-slate-200 mt-auto">
+                            <a href="https://github.com/AkamAzizi/Offert-Ai" target="_blank" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors">
+                                <i data-lucide="github" class="w-4 h-4"></i> Repo
+                            </a>
+                            <span class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 text-slate-500 text-sm font-medium rounded-xl">Demo on request</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CAD-MVP -->
+                <article class="reveal delay-300 group h-full flex flex-col bg-slate-50/50 rounded-3xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-2">
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 text-slate-900 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                                <i data-lucide="boxes" class="w-6 h-6"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-200 text-slate-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Private</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">CAD-MVP (Multi-Agent)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
+                            Multi-agent pipeline for CAD automation: analyzes assemblies and supports engineering outputs and documentation workflows.
+                        </p>
+                        <ul class="text-slate-500 text-xs space-y-1 mb-4">
+                            <li>• CAD parsing + structured reasoning</li>
+                            <li>• Multi-agent orchestration</li>
+                            <li>• Reliable, repeatable outputs</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">Python</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">FreeCAD</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">Multi-Agent</span>
+                        </div>
+                        <div class="flex items-center gap-3 pt-6 border-t border-slate-200 mt-auto">
+                            <a href="https://github.com/AkamAzizi/CAD-MVP" target="_blank" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors">
+                                <i data-lucide="github" class="w-4 h-4"></i> Repo
+                            </a>
+                            <span class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 text-slate-500 text-sm font-medium rounded-xl">Demo on request</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
                 <div>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Selected Works</h2>
