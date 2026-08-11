@@ -1,668 +1,1056 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Akam Azizi — AI Developer</title>
-    <meta name="description" content="Portfolio of Akam Azizi, a Software Developer specializing in Applied AI and Full-Stack Engineering." />
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Akam Azizi — AI Developer</title>
+<meta name="description" content="Portfolio of Akam Azizi, a Software Developer specializing in Applied AI and Full-Stack Engineering." />
+<meta name="theme-color" content="#0a0a0b" />
 
-    <!-- Configuration -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-            colors: {
-              primary: {
-                50: '#f0f9ff',
-                100: '#e0f2fe',
-                500: '#0ea5e9',
-                600: '#0284c7',
-                700: '#0369a1',
-                900: '#0c4a6e',
-              },
-              slate: {
-                850: '#1e293b', // Custom dark shade
-                900: '#0f172a',
-              }
-            },
-            animation: {
-              'blob': 'blob 10s infinite',
-              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-            },
-            keyframes: {
-              blob: {
-                '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                '100%': { transform: 'translate(0px, 0px) scale(1)' },
-              },
-              fadeInUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              }
-            }
-          },
-        },
-      };
-    </script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-    <style>
-      /* Base Styles */
-      body {
-        font-family: 'Inter', sans-serif;
-        -webkit-font-smoothing: antialiased;
-      }
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --bg:            #0a0a0b;
+  --bg-raise:      #101012;
+  --bg-panel:      #0e0e10;
+  --ink:           #f2f2ef;
+  --ink-dim:       #a2a2a8;
+  --ink-faint:     #82828c;   /* 5.2:1 on --bg */
+  --line:          #1e1e22;
+  --line-strong:   #2b2b31;
+  --acid:          #ccf24d;
+  --acid-dim:      #8ca82e;
+  --amber:         #ffab3d;
 
-      /* Animation Utilities */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-      }
-      
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --disp: 'Bricolage Grotesque', var(--sans);
 
-      /* Stagger delays */
-      .delay-100 { transition-delay: 100ms; }
-      .delay-200 { transition-delay: 200ms; }
-      .delay-300 { transition-delay: 300ms; }
-      .delay-400 { transition-delay: 400ms; }
+  --pad: clamp(1.25rem, 4vw, 4.5rem);
+  --maxw: 1440px;
+  --ease: cubic-bezier(.16,1,.3,1);
+}
 
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f8fafc;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
-      }
-    </style>
+/* ============================================================
+   RESET
+   ============================================================ */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0 }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100% }
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{ display:block; max-width:100% }
+a{ color:inherit; text-decoration:none }
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer }
+ul{ list-style:none }
+::selection{ background:var(--acid); color:#0a0a0b }
+:focus-visible{ outline:2px solid var(--acid); outline-offset:3px; border-radius:2px }
+
+::-webkit-scrollbar{ width:11px }
+::-webkit-scrollbar-track{ background:#0a0a0b }
+::-webkit-scrollbar-thumb{ background:#26262c; border:3px solid #0a0a0b; border-radius:99px }
+::-webkit-scrollbar-thumb:hover{ background:var(--acid-dim) }
+
+/* ============================================================
+   ATMOSPHERE — grid, grain, spotlight
+   ============================================================ */
+.field{ position:fixed; inset:0; pointer-events:none; z-index:0 }
+
+.field--grid{
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, #000 20%, transparent 78%);
+}
+.field--grain{
+  opacity:.05; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.field--glow{
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%), rgba(204,242,77,.07), transparent 62%);
+  transition:opacity .4s;
+}
+
+/* ============================================================
+   TYPE PRIMITIVES
+   ============================================================ */
+.mono{
+  font-family:var(--mono);
+  font-size:.6875rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:500;
+}
+.dim{ color:var(--ink-dim) }
+.faint{ color:var(--ink-faint) }
+.acid{ color:var(--acid) }
+
+.display{
+  font-family:var(--disp);
+  font-weight:800;
+  line-height:.87;
+  letter-spacing:-.035em;
+  text-transform:uppercase;
+  font-variation-settings:'opsz' 96;
+}
+.outline{
+  color:transparent;
+  -webkit-text-stroke:1.2px var(--ink-faint);
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.shell{ position:relative; z-index:1 }
+.wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad) }
+.rule{ height:1px; background:var(--line); width:100% }
+
+section{ position:relative }
+
+/* section header pattern */
+.sechead{
+  display:grid; grid-template-columns: 12rem 1fr; gap:0 2rem;
+  padding-block: clamp(4.5rem,9vw,8rem) clamp(2.5rem,4vw,4rem);
+  align-items:start;
+}
+.sechead__idx{
+  display:flex; align-items:center; gap:.7rem;
+  padding-top:.7rem; color:var(--acid); white-space:nowrap;
+}
+.sechead__idx::after{ content:''; width:2.25rem; height:1px; background:var(--line-strong); flex:none }
+.sechead__title{
+  font-size:clamp(2.2rem,6.2vw,4.6rem);
+}
+.sechead__lede{
+  max-width:44ch; margin-top:1.5rem;
+  color:var(--ink-dim); font-size:clamp(.95rem,1.1vw,1.0625rem); line-height:1.7;
+}
+@media(max-width:760px){
+  .sechead{ grid-template-columns:1fr; gap:1.1rem }
+  .sechead__idx{ padding-top:0 }
+}
+
+/* ============================================================
+   PROGRESS + NAV
+   ============================================================ */
+#bar{
+  position:fixed; top:0; left:0; height:2px; width:100%;
+  transform:scaleX(0); transform-origin:0 50%;
+  background:var(--acid); z-index:120;
+}
+
+#nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  border-bottom:1px solid transparent;
+  transition:background .35s, border-color .35s, backdrop-filter .35s;
+}
+#nav.stuck{
+  background:rgba(10,10,11,.72);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom-color:var(--line);
+}
+.nav__in{
+  height:68px; display:flex; align-items:center; justify-content:space-between; gap:2rem;
+}
+.brand{ display:flex; align-items:baseline; gap:.55rem; font-family:var(--mono); font-weight:600; letter-spacing:.02em; font-size:.9375rem }
+.brand b{ font-weight:600 }
+.brand i{
+  font-style:normal; width:.5rem; height:1rem; background:var(--acid);
+  display:inline-block; transform:translateY(2px); animation:blink 1.15s steps(1) infinite;
+}
+@keyframes blink{ 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+.nav__links{ display:flex; align-items:center; gap:2.25rem }
+.nav__link{ position:relative; color:var(--ink-dim); transition:color .25s }
+.nav__link span{ color:var(--ink-faint); margin-right:.45rem; transition:color .25s }
+.nav__link::after{
+  content:''; position:absolute; left:0; right:100%; bottom:-6px; height:1px;
+  background:var(--acid); transition:right .4s var(--ease);
+}
+.nav__link:hover{ color:var(--ink) }
+.nav__link:hover span{ color:var(--acid) }
+.nav__link:hover::after{ right:0 }
+
+.burger{ display:none; padding:.6rem; margin-right:-.6rem }
+@media(max-width:860px){
+  .nav__links{ display:none }
+  .burger{ display:block }
+}
+
+#drawer{
+  position:fixed; inset:0; z-index:110; background:var(--bg);
+  transform:translateY(-100%); visibility:hidden;
+  transition:transform .55s var(--ease), visibility 0s linear .55s;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:0 var(--pad);
+}
+#drawer.open{ transform:translateY(0); visibility:visible; transition:transform .55s var(--ease), visibility 0s }
+#drawer a{
+  font-family:var(--disp); font-weight:700; text-transform:uppercase;
+  font-size:clamp(2rem,11vw,3.5rem); line-height:1.15; letter-spacing:-.03em;
+  border-bottom:1px solid var(--line); padding:.6rem 0;
+  display:flex; align-items:baseline; justify-content:space-between; gap:1rem;
+}
+#drawer a em{ font-style:normal; font-family:var(--mono); font-size:.7rem; letter-spacing:.2em; color:var(--acid) }
+.drawer__close{ position:absolute; top:16px; right:calc(var(--pad) - .6rem); padding:.6rem }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#home{
+  min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end;
+  padding-top:120px; padding-bottom:0;
+}
+.hero__meta{
+  display:flex; flex-wrap:wrap; gap:1rem 2.5rem; align-items:center;
+  padding-bottom:clamp(1.75rem,4vw,3rem);
+}
+.status{ display:inline-flex; align-items:center; gap:.6rem; color:var(--ink-dim) }
+.status i{
+  position:relative; width:7px; height:7px; border-radius:99px; background:var(--acid); flex:none;
+}
+.status i::after{
+  content:''; position:absolute; inset:-3px; border-radius:99px; border:1px solid var(--acid);
+  animation:pulse 2s ease-out infinite;
+}
+@keyframes pulse{ 0%{opacity:.9;transform:scale(.7)} 100%{opacity:0;transform:scale(1.7)} }
+
+.hero__title{
+  font-size:clamp(3.1rem, 13.2vw, 12.5rem);
+  padding-bottom:clamp(1.5rem,3vw,2.5rem);
+}
+.hero__title span{ display:block }
+.hero__title .l2{ display:flex; align-items:baseline; flex-wrap:wrap; gap:0 .28em }
+.hero__title .outline{ -webkit-text-stroke-width:clamp(1px,.32vw,3px) }
+
+.hero__grid{
+  display:grid; grid-template-columns: 1.15fr .85fr; gap:clamp(2rem,5vw,5rem);
+  align-items:end; padding-bottom:clamp(2rem,4vw,3.25rem);
+}
+@media(max-width:860px){ .hero__grid{ grid-template-columns:1fr; align-items:start } }
+
+.hero__lede{ font-size:clamp(1.0625rem,1.6vw,1.375rem); line-height:1.55; color:var(--ink-dim); max-width:34ch }
+.hero__lede b{ color:var(--ink); font-weight:500 }
+
+.hero__cta{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem }
+
+.btn{
+  position:relative;
+  display:inline-flex; align-items:center; gap:.7rem;
+  padding:1rem 1.5rem; border:1px solid var(--line-strong);
+  font-family:var(--mono); font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; font-weight:500;
+  /* wipe fill painted as a background layer so text always stays on top */
+  background-image:linear-gradient(var(--acid),var(--acid));
+  background-repeat:no-repeat;
+  background-position:50% 100%;
+  background-size:100% 0%;
+  transition:background-size .45s var(--ease), color .3s, border-color .3s;
+}
+.btn svg{ width:15px; height:15px; transition:transform .35s var(--ease) }
+.btn:hover{ color:#0a0a0b; border-color:var(--acid); background-size:100% 100% }
+.btn:hover svg{ transform:translateX(4px) }
+.btn--solid{
+  background-color:var(--acid); color:#0a0a0b; border-color:var(--acid); font-weight:600;
+  background-image:linear-gradient(var(--ink),var(--ink));
+}
+.btn--solid:hover{ color:#0a0a0b; border-color:var(--ink) }
+
+.hero__side{ display:flex; flex-direction:column; gap:1px; background:var(--line) }
+.cell{
+  background:var(--bg); padding:1.15rem 1.25rem;
+  display:flex; align-items:baseline; justify-content:space-between; gap:1rem;
+  transition:background .3s;
+}
+.cell:hover{ background:var(--bg-raise) }
+.cell b{ font-family:var(--mono); font-weight:500; font-size:.8125rem; letter-spacing:.02em; color:var(--ink) }
+.cell em{ font-style:normal; font-family:var(--mono); font-size:.625rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint) }
+
+.hero__foot{
+  display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap;
+  border-top:1px solid var(--line); padding:1.1rem 0;
+}
+.social{ display:flex; align-items:center; gap:1.75rem }
+.social a{ display:inline-flex; align-items:center; gap:.5rem; color:var(--ink-faint); transition:color .25s }
+.social a:hover{ color:var(--acid) }
+.social svg{ width:16px; height:16px }
+.scrollcue{ display:inline-flex; align-items:center; gap:.6rem; color:var(--ink-faint) }
+.scrollcue svg{ width:13px; height:13px; animation:bob 2.2s ease-in-out infinite }
+@keyframes bob{ 0%,100%{transform:translateY(-2px)} 50%{transform:translateY(3px)} }
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.ticker{
+  border-block:1px solid var(--line); overflow:hidden; padding:.9rem 0;
+  background:var(--bg-raise); position:relative;
+}
+.ticker__track{ display:flex; width:max-content; animation:slide 42s linear infinite }
+.ticker:hover .ticker__track{ animation-play-state:paused }
+@keyframes slide{ to{ transform:translateX(-50%) } }
+.ticker__row{ display:flex; align-items:center; gap:2.5rem; padding-right:2.5rem }
+.ticker__row span{ font-family:var(--mono); font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-dim); white-space:nowrap }
+.ticker__row i{ width:5px; height:5px; background:var(--acid); flex:none; transform:rotate(45deg) }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about{ display:grid; grid-template-columns: 5.5fr 6.5fr; gap:clamp(2.5rem,6vw,6rem); padding-bottom:clamp(4rem,8vw,7rem) }
+@media(max-width:960px){ .about{ grid-template-columns:1fr } }
+
+.portrait__box{ position:sticky; top:104px }
+.portrait{
+  position:relative; aspect-ratio:4/5; overflow:hidden;
+  border:1px solid var(--line);
+  /* technical placeholder shows through if the photo is missing */
+  background-color:var(--bg-raise);
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:36px 36px;
+}
+.portrait img[hidden]{ display:none }
+.portrait img{
+  width:100%; height:100%; object-fit:cover;
+  filter:grayscale(1) contrast(1.12) brightness(.85);
+  transition:filter .7s var(--ease), transform 1.1s var(--ease);
+}
+.portrait:hover img{ filter:grayscale(0) contrast(1) brightness(1); transform:scale(1.035) }
+.portrait::after{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(to bottom, rgba(0,0,0,.22) 0 1px, transparent 1px 4px);
+  opacity:.5; mix-blend-mode:multiply;
+}
+.brk{ position:absolute; width:16px; height:16px; border:1px solid var(--acid); z-index:2; pointer-events:none }
+.brk.tl{ top:0; left:0; border-right:0; border-bottom:0 }
+.brk.tr{ top:0; right:0; border-left:0; border-bottom:0 }
+.brk.bl{ bottom:0; left:0; border-right:0; border-top:0 }
+.brk.br{ bottom:0; right:0; border-left:0; border-top:0 }
+
+.portrait__cap{ display:flex; justify-content:space-between; gap:1rem; padding-top:.85rem; color:var(--ink-faint) }
+
+.prose p{ font-size:clamp(1rem,1.25vw,1.1875rem); line-height:1.75; color:var(--ink-dim); margin-bottom:1.35rem }
+.prose p:last-child{ margin-bottom:0 }
+.prose strong{ color:var(--ink); font-weight:500 }
+.prose .lead{ font-size:clamp(1.15rem,1.7vw,1.4375rem); color:var(--ink); line-height:1.55; font-weight:300 }
+
+.caps{ margin-top:clamp(2.5rem,5vw,3.5rem); border-top:1px solid var(--line) }
+.cap{
+  display:grid; grid-template-columns:3.25rem 1fr; gap:1.5rem; align-items:start;
+  padding:1.6rem .25rem; border-bottom:1px solid var(--line);
+  transition:background .35s, padding-left .35s var(--ease);
+}
+.cap:hover{ background:var(--bg-raise); padding-left:1rem }
+.cap__n{ font-family:var(--mono); font-size:.6875rem; letter-spacing:.15em; color:var(--acid); padding-top:.35rem }
+.cap h4{ font-family:var(--disp); font-weight:700; font-size:1.25rem; letter-spacing:-.015em; margin-bottom:.35rem }
+.cap p{ color:var(--ink-dim); font-size:.9375rem; line-height:1.6 }
+
+/* ============================================================
+   SKILLS — datasheet
+   ============================================================ */
+.sheet{ border-top:1px solid var(--line-strong); padding-bottom:clamp(4rem,8vw,7rem) }
+.sheet__row{
+  display:grid; grid-template-columns: 14rem 1fr; gap:1rem 2.5rem;
+  padding:1.85rem 0; border-bottom:1px solid var(--line);
+  transition:background .3s;
+}
+.sheet__row:hover{ background:linear-gradient(90deg, rgba(204,242,77,.045), transparent 55%) }
+.sheet__key{ display:flex; align-items:center; gap:.7rem; color:var(--ink); padding-top:.2rem }
+.sheet__key i{ width:5px; height:5px; background:var(--acid); transform:rotate(45deg); flex:none }
+.sheet__val{ display:flex; flex-wrap:wrap; gap:.5rem 0 }
+.tag{
+  font-family:var(--mono); font-size:.8125rem; letter-spacing:.01em; color:var(--ink-dim);
+  padding:.2rem .95rem; border-right:1px solid var(--line-strong);
+  transition:color .25s, transform .25s var(--ease);
+}
+.tag:first-child{ padding-left:0 }
+.sheet__val .tag:last-child{ border-right:0 }
+.tag:hover{ color:var(--acid) }
+@media(max-width:760px){
+  .sheet__row{ grid-template-columns:1fr; gap:.9rem }
+  .tag{ padding-left:0; padding-right:.9rem; border-right:1px solid var(--line-strong) }
+}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+.panels{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line) }
+@media(max-width:1040px){ .panels{ grid-template-columns:1fr 1fr } }
+@media(max-width:720px){ .panels{ grid-template-columns:1fr } }
+
+.panel{
+  position:relative; background:var(--bg-panel); padding:clamp(1.6rem,2.5vw,2.25rem);
+  display:flex; flex-direction:column; min-height:100%;
+  transition:background .4s;
+}
+.panel:hover{ background:var(--bg-raise) }
+.panel .brk{ opacity:0; transition:opacity .4s }
+.panel:hover .brk{ opacity:1 }
+.panel__top{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:2.25rem }
+.panel__n{ font-family:var(--mono); font-size:.6875rem; letter-spacing:.18em; color:var(--ink-faint) }
+.chip{
+  font-family:var(--mono); font-size:.5625rem; letter-spacing:.2em; text-transform:uppercase; font-weight:600;
+  padding:.3rem .6rem; border:1px solid currentColor; color:var(--ink-faint);
+}
+.panel h3{
+  font-family:var(--disp); font-weight:700; text-transform:uppercase; letter-spacing:-.025em;
+  font-size:clamp(1.35rem,2vw,1.65rem); line-height:1.02; margin-bottom:.9rem;
+  transition:color .3s;
+}
+.panel:hover h3{ color:var(--acid) }
+.panel__desc{ color:var(--ink-dim); font-size:.9375rem; line-height:1.65; margin-bottom:1.35rem }
+.panel__list{ margin-bottom:1.5rem; display:flex; flex-direction:column; gap:.45rem }
+.panel__list li{
+  font-family:var(--mono); font-size:.75rem; line-height:1.5; color:var(--ink-faint);
+  display:flex; gap:.6rem;
+}
+.panel__list li::before{ content:'→'; color:var(--acid-dim); flex:none }
+.panel__stack{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:auto; padding-bottom:1.5rem }
+.panel__stack span{
+  font-family:var(--mono); font-size:.625rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-faint); border:1px solid var(--line-strong); padding:.25rem .55rem;
+}
+.panel__links{ display:flex; gap:1px; background:var(--line-strong); border-top:1px solid var(--line-strong); margin-inline:calc(clamp(1.6rem,2.5vw,2.25rem) * -1); margin-bottom:calc(clamp(1.6rem,2.5vw,2.25rem) * -1) }
+.plink{
+  flex:1; background:var(--bg-panel); padding:.95rem 1rem;
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  font-family:var(--mono); font-size:.6875rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-dim); transition:background .28s, color .28s;
+}
+.plink svg{ width:13px; height:13px }
+a.plink:hover{ background:var(--acid); color:#0a0a0b }
+.plink--mute{ color:var(--ink-faint); cursor:default }
+
+/* numbered project rows */
+.rows{ border-top:1px solid var(--line-strong) }
+.row{
+  position:relative; display:grid; align-items:center;
+  grid-template-columns: 4.5rem minmax(0,17rem) minmax(0,1fr) auto;
+  gap:1.5rem 2rem; padding:1.9rem .25rem;
+  border-bottom:1px solid var(--line);
+  transition:padding .45s var(--ease), background .35s;
+}
+.row::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--acid);
+  transform:scaleY(0); transform-origin:50% 100%; transition:transform .45s var(--ease);
+}
+.row:hover{ padding-left:1.25rem; background:var(--bg-raise) }
+.row:hover::before{ transform:scaleY(1); transform-origin:50% 0 }
+.row__n{ font-family:var(--mono); font-size:.6875rem; letter-spacing:.18em; color:var(--ink-faint); transition:color .3s; align-self:start; padding-top:.35rem }
+.row:hover .row__n{ color:var(--acid) }
+.row__n em{
+  display:block; margin-top:.6rem; font-style:normal; font-size:.5625rem;
+  letter-spacing:.2em; color:var(--amber);
+}
+.row__t{
+  font-family:var(--disp); font-weight:700; text-transform:uppercase; letter-spacing:-.025em;
+  font-size:clamp(1.3rem,2.4vw,1.9rem); line-height:1.02;
+}
+.row__d{ color:var(--ink-dim); font-size:.9375rem; line-height:1.6; max-width:46ch }
+.row__d em{ font-style:normal; display:block; margin-top:.5rem; font-family:var(--mono); font-size:.625rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint) }
+.row__a{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:flex-end }
+.mini{
+  display:inline-flex; align-items:center; gap:.45rem; padding:.6rem .9rem;
+  border:1px solid var(--line-strong);
+  font-family:var(--mono); font-size:.625rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-dim); transition:.28s;
+}
+.mini svg{ width:12px; height:12px }
+.mini:hover{ background:var(--acid); color:#0a0a0b; border-color:var(--acid) }
+@media(max-width:960px){
+  .row{ grid-template-columns:3.5rem 1fr; }
+  .row__d{ grid-column:2 }
+  .row__a{ grid-column:2; justify-content:flex-start }
+}
+
+.allgh{
+  display:inline-flex; align-items:center; gap:.65rem; margin-top:2.25rem;
+  color:var(--ink); border-bottom:1px solid var(--line-strong); padding-bottom:.5rem;
+  transition:color .3s, border-color .3s;
+}
+.allgh svg{ width:14px; height:14px; transition:transform .35s var(--ease) }
+.allgh:hover{ color:var(--acid); border-color:var(--acid) }
+.allgh:hover svg{ transform:translateX(5px) }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact{ padding-bottom:clamp(4rem,7vw,6rem) }
+.term{ border:1px solid var(--line-strong); background:var(--bg-panel); position:relative; overflow:hidden }
+.term::after{
+  content:''; position:absolute; width:520px; height:520px; right:-160px; bottom:-260px;
+  background:radial-gradient(circle, rgba(204,242,77,.13), transparent 68%); pointer-events:none;
+}
+.term__bar{
+  display:flex; align-items:center; gap:.9rem; padding:.75rem 1.1rem;
+  border-bottom:1px solid var(--line-strong); background:var(--bg-raise);
+}
+.dots{ display:flex; gap:.4rem }
+.dots i{ width:9px; height:9px; border-radius:99px; background:var(--line-strong) }
+.dots i:first-child{ background:var(--acid-dim) }
+.term__body{ padding:clamp(2rem,5vw,4.5rem); position:relative; z-index:1 }
+.term__line{ display:flex; gap:.7rem; align-items:baseline; color:var(--ink-faint); margin-bottom:1.75rem }
+.term__line b{ color:var(--acid); font-weight:500 }
+.term__line u{ text-decoration:none; border-right:.5em solid var(--acid); animation:blink 1.15s steps(1) infinite; padding-right:1px }
+.term h2{ font-size:clamp(2.1rem,6.4vw,5rem); margin-bottom:1.6rem }
+.term p{ color:var(--ink-dim); font-size:clamp(1rem,1.3vw,1.1875rem); max-width:52ch; line-height:1.7; margin-bottom:2.5rem }
+.term__cta{ display:flex; flex-wrap:wrap; gap:.75rem }
+
+.term__foot{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.25rem;
+  border-top:1px solid var(--line-strong); padding:1.25rem clamp(1.1rem,3vw,2rem);
+  position:relative; z-index:1;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{ border-top:1px solid var(--line) }
+.foot{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.25rem;
+  padding-block:2.25rem;
+}
+.foot__brand{ font-family:var(--disp); font-weight:800; text-transform:uppercase; letter-spacing:-.03em; font-size:1.5rem }
+.totop{ display:inline-flex; align-items:center; gap:.6rem; color:var(--ink-faint); transition:color .25s }
+.totop:hover{ color:var(--acid) }
+.totop svg{ width:13px; height:13px }
+
+/* ============================================================
+   MOTION
+   ============================================================ */
+.rv{ opacity:0; transform:translateY(26px); transition:opacity .9s var(--ease), transform .9s var(--ease) }
+.rv.in{ opacity:1; transform:none }
+.rv[data-d]{ transition-delay:calc(var(--d,0) * 1ms) }
+
+.up{ display:block; overflow:hidden; padding-block:.06em; margin-block:-.06em }
+.up > span{ display:block; transform:translateY(108%); transition:transform 1.05s var(--ease) }
+.loaded .up > span{ transform:translateY(0) }
+.up:nth-child(2) > span{ transition-delay:.1s }
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important }
+  .rv{ opacity:1; transform:none }
+  .up > span{ transform:none }
+}
+</style>
+<noscript><style>
+  .rv{ opacity:1 !important; transform:none !important }
+  .up > span{ transform:none !important }
+</style></noscript>
 </head>
-<body class="bg-slate-50 text-slate-900 selection:bg-primary-500 selection:text-white overflow-x-hidden">
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-primary-600 tracking-tight">
-                Akam Azizi
-            </a>
+<body>
 
-            <!-- Desktop Nav -->
-            <div class="hidden md:flex gap-8">
-                <a href="#about" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">About</a>
-                <a href="#skills" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Skills</a>
-                <a href="#projects" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Projects</a>
-                <a href="#contact" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Contact</a>
-            </div>
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></symbol>
+    <symbol id="i-gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.73.08-.73 1.21.09 1.85 1.25 1.85 1.25 1.08 1.84 2.83 1.31 3.52 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.82 1.1.82 2.22v3.29c0 .32.21.69.82.58A12 12 0 0 0 12 .5Z"/></symbol>
+    <symbol id="i-li" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.36-1.85c3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><rect x="2" y="4" width="20" height="16"/><path d="m2 6 10 7 10-7"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><rect x="9" y="9" width="12" height="12"/><path d="M5 15H3V3h12v2"/></symbol>
+    <symbol id="i-dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 3v12M7 10l5 5 5-5M3 21h18"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M3 7h18M3 17h18"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+  </defs>
+</svg>
 
-            <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden p-2 text-slate-600 hover:text-slate-900" aria-label="Toggle Menu">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
+<div class="field field--grid"></div>
+<div class="field field--glow" id="glow"></div>
+<div class="field field--grain"></div>
 
-        <!-- Mobile Nav Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 gap-6 transform translate-x-full transition-transform duration-300 md:hidden">
-            <button id="close-menu-btn" class="absolute top-6 right-6 p-2 text-slate-600">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <a href="#about" class="mobile-link text-2xl font-bold text-slate-800">About</a>
-            <a href="#skills" class="mobile-link text-2xl font-bold text-slate-800">Skills</a>
-            <a href="#projects" class="mobile-link text-2xl font-bold text-slate-800">Projects</a>
-            <a href="#contact" class="mobile-link text-2xl font-bold text-slate-800">Contact</a>
-        </div>
+<div id="bar"></div>
+
+<!-- ============ NAV ============ -->
+<header id="nav">
+  <div class="wrap nav__in">
+    <a href="#home" class="brand" aria-label="Akam Azizi — home">
+      <b>AKAM_AZIZI</b><i aria-hidden="true"></i>
+    </a>
+    <nav class="nav__links mono" aria-label="Primary">
+      <a class="nav__link" href="#about"><span>01</span>About</a>
+      <a class="nav__link" href="#skills"><span>02</span>Skills</a>
+      <a class="nav__link" href="#projects"><span>03</span>Projects</a>
+      <a class="nav__link" href="#contact"><span>04</span>Contact</a>
     </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <svg width="26" height="26"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-slate-50">
-        <!-- Background blobs -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-blue-100/50 rounded-full mix-blend-multiply filter blur-[80px] opacity-70 animate-blob"></div>
-            <div class="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-100/50 rounded-full mix-blend-multiply filter blur-[80px] opacity-70 animate-blob animation-delay-2000"></div>
+<div id="drawer" aria-hidden="true">
+  <button class="drawer__close" id="drawerClose" aria-label="Close menu">
+    <svg width="26" height="26"><use href="#i-x"/></svg>
+  </button>
+  <a href="#about">About <em>01</em></a>
+  <a href="#skills">Skills <em>02</em></a>
+  <a href="#projects">Projects <em>03</em></a>
+  <a href="#contact">Contact <em>04</em></a>
+</div>
+
+<main class="shell">
+
+  <!-- ============ HERO ============ -->
+  <section id="home">
+    <div class="wrap">
+      <div class="hero__meta mono">
+        <span class="status"><i aria-hidden="true"></i>Available for work</span>
+        <span class="faint">AI Engineer · Full-Stack</span>
+        <span class="faint">Est. 2025 — Present</span>
+      </div>
+
+      <h1 class="display hero__title">
+        <span class="up"><span>Building Logic</span></span>
+        <span class="up"><span class="l2">Into <span class="outline">Reality.</span></span></span>
+      </h1>
+
+      <div class="hero__grid">
+        <div>
+          <p class="hero__lede rv" data-d="380">
+            Hi, I'm <b>Akam Azizi</b>. Building production-ready AI systems that run in the real world.
+          </p>
+          <div class="hero__cta rv" data-d="480">
+            <a href="#projects" class="btn btn--solid">See my work <svg><use href="#i-arrow"/></svg></a>
+            <a href="#contact" class="btn">Let's talk</a>
+          </div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full text-center">
-            <!-- Available Badge -->
-            <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-slate-200 shadow-sm backdrop-blur-sm mb-8">
-                <span class="relative flex h-2.5 w-2.5">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                </span>
-                <span class="text-xs font-semibold text-slate-600 tracking-wide uppercase">Available for Work</span>
-            </div>
-
-            <!-- Headline -->
-            <h1 class="reveal delay-100 text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-slate-900 mb-8">
-                Building Logic <br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-indigo-600">Into Reality.</span>
-            </h1>
-
-            <!-- Subtext -->
-            <p class="reveal delay-200 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-                Hi, I'm <span class="text-slate-900 font-bold">Akam Azizi</span>. Building production-ready AI systems
-                LLM · RAG · Multi-Agent
-            </p>
-
-            <!-- CTAs -->
-            <div class="reveal delay-300 flex flex-col sm:flex-row gap-4 w-full justify-center mb-16">
-                <a href="#projects" class="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-full font-semibold transition-all hover:bg-slate-800 hover:shadow-xl hover:shadow-slate-900/20 hover:-translate-y-0.5">
-                    See My Work
-                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                </a>
-                <a href="#contact" class="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-full font-semibold transition-all hover:border-slate-300 hover:bg-slate-50 hover:-translate-y-0.5">
-                    Let's Talk
-                </a>
-            </div>
-            
-            <!-- Socials -->
-            <div class="reveal delay-400 flex items-center justify-center gap-8 text-slate-400">
-                <a href="https://github.com/akamazizi" target="_blank" class="hover:text-slate-900 transition-colors">
-                    <i data-lucide="github" class="w-6 h-6"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/akam-azizi-932897213/" target="_blank" class="hover:text-primary-600 transition-colors">
-                    <i data-lucide="linkedin" class="w-6 h-6"></i>
-                </a>
-                <div class="w-px h-6 bg-slate-200"></div>
-                <a href="#" class="hover:text-slate-900 transition-colors flex items-center gap-2 text-sm font-medium">
-                    <i data-lucide="download" class="w-4 h-4"></i> Resume
-                </a>
-            </div>
+        <div class="hero__side rv" data-d="560" aria-label="Focus areas">
+          <div class="cell"><b>LLM Orchestration</b><em>01</em></div>
+          <div class="cell"><b>RAG Pipelines</b><em>02</em></div>
+          <div class="cell"><b>Multi-Agent Systems</b><em>03</em></div>
         </div>
-    </section>
+      </div>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 md:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-12 md:gap-20 items-start">
-                <!-- Sticky Image -->
-                <div class="md:col-span-5 md:sticky md:top-32 reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
-                        More Than Just <br />
-                        <span class="text-slate-400">Code.</span>
-                    </h2>
-                    <div class="w-20 h-1.5 bg-primary-600 rounded-full mb-8"></div>
-                    <div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-slate-100 group">
-                        <img src="profileee.jpeg" alt="Akam Azizi" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
-                    </div>
-                </div>
-
-                <!-- Content -->
-                <div class="md:col-span-7 space-y-12">
-                    <div class="reveal delay-100">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-4">The Engineer</h3>
-                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                            <strong class="text-slate-900">AI Engineer and Full-Stack Developer</strong> focused on applied AI, multi-agent systems, and real-world product development.
-                        </p>
-                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                            Currently working at an AI startup, building end-to-end AI features including multi-agent content systems, LLM orchestration, and trend retrieval pipelines that automate real business workflows.
-                        </p>
-                        <p class="text-lg text-slate-600 leading-relaxed">
-                            Background in Python, full-stack engineering, algorithm design, and applied machine learning, with hands-on experience across backend systems, APIs, and AI-first product architecture.
-                        </p>
-                    </div>
-
-                    <!-- Cards -->
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div class="reveal delay-200 p-6 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-lg transition-all duration-300">
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary-600 shadow-sm mb-4 border border-slate-100">
-                                <i data-lucide="brain" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="font-bold text-slate-900 mb-2">Applied AI</h4>
-                            <p class="text-sm text-slate-600">Integrating ML models into practical software workflows.</p>
-                        </div>
-
-                        <div class="reveal delay-300 p-6 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-lg transition-all duration-300">
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary-600 shadow-sm mb-4 border border-slate-100">
-                                <i data-lucide="code-2" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="font-bold text-slate-900 mb-2">Full Stack</h4>
-                            <p class="text-sm text-slate-600">Building end-to-end solutions with React, Python & SQL.</p>
-                        </div>
-
-                        <div class="reveal delay-400 p-6 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-lg transition-all duration-300">
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary-600 shadow-sm mb-4 border border-slate-100">
-                                <i data-lucide="zap" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="font-bold text-slate-900 mb-2">Optimization</h4>
-                            <p class="text-sm text-slate-600">Focusing on algorithmic efficiency and speed.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="hero__foot mono rv" data-d="660">
+        <div class="social">
+          <a href="https://github.com/akamazizi" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> GitHub</a>
+          <a href="https://www.linkedin.com/in/akam-azizi-932897213/" target="_blank" rel="noopener"><svg><use href="#i-li"/></svg> LinkedIn</a>
+          <a href="#"><svg><use href="#i-dl"/></svg> Résumé</a>
         </div>
-    </section>
+        <span class="scrollcue"><svg><use href="#i-down"/></svg> Scroll</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 md:py-32 bg-slate-50 overflow-hidden border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="reveal mb-16 max-w-2xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Technical Arsenal</h2>
-                <p class="text-slate-600 text-lg">
-                    A comprehensive toolkit for modern software development, ranging from low-level algorithms to high-level UI frameworks.
-                </p>
-            </div>
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <div class="ticker__row">
+        <span>Python</span><i></i><span>FastAPI</span><i></i><span>React</span><i></i><span>TypeScript</span><i></i>
+        <span>Vector Search</span><i></i><span>LLM Orchestration</span><i></i><span>Docker</span><i></i>
+        <span>PostgreSQL</span><i></i><span>Multi-Agent</span><i></i><span>NLP</span><i></i>
+      </div>
+      <div class="ticker__row">
+        <span>Python</span><i></i><span>FastAPI</span><i></i><span>React</span><i></i><span>TypeScript</span><i></i>
+        <span>Vector Search</span><i></i><span>LLM Orchestration</span><i></i><span>Docker</span><i></i>
+        <span>PostgreSQL</span><i></i><span>Multi-Agent</span><i></i><span>NLP</span><i></i>
+      </div>
+    </div>
+  </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                <!-- Languages -->
-                <div class="reveal delay-100">
-                    <h3 class="text-lg font-semibold text-slate-900 mb-6 flex items-center gap-3">
-                        <span class="w-8 h-[1px] bg-primary-600"></span>
-                        Languages
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Python</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">JavaScript</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">TypeScript</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">C#</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">SQL</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Java</span>
-                    </div>
-                </div>
-
-                <!-- Frameworks -->
-                <div class="reveal delay-200">
-                    <h3 class="text-lg font-semibold text-slate-900 mb-6 flex items-center gap-3">
-                        <span class="w-8 h-[1px] bg-primary-600"></span>
-                        Frameworks & Libs
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">FastAPI</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">React</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">React Native</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Pygame</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Tkinter</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Pandas</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">scikit-learn</span>
-                    </div>
-                </div>
-
-                <!-- AI -->
-                <div class="reveal delay-300">
-                    <h3 class="text-lg font-semibold text-slate-900 mb-6 flex items-center gap-3">
-                        <span class="w-8 h-[1px] bg-primary-600"></span>
-                        AI & Fundamentals
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Machine Learning</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">NLP</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Applied AI</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Backtracking</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Dynamic Programming</span>
-                    </div>
-                </div>
-
-                <!-- Tools -->
-                <div class="reveal delay-400">
-                    <h3 class="text-lg font-semibold text-slate-900 mb-6 flex items-center gap-3">
-                        <span class="w-8 h-[1px] bg-primary-600"></span>
-                        Tools & Platforms
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Git/GitHub</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Docker</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">Linux</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">PostgreSQL</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-600 text-sm font-medium shadow-sm hover:border-primary-400 hover:text-primary-700 hover:shadow-md transition-all cursor-default">VS Code</span>
-                    </div>
-                </div>
-            </div>
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sechead">
+        <div class="sechead__idx mono rv">[ 01 ] About</div>
+        <div>
+          <h2 class="display sechead__title rv" data-d="80">More than<br>just <span class="outline">code.</span></h2>
         </div>
-    </section>
+      </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 md:py-32 bg-white border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Featured Projects (Private) -->
-            <div class="reveal mb-4">
-                <h3 class="text-2xl font-bold text-slate-900 mb-2">Featured Projects (Private)</h3>
-                <p class="text-slate-600 max-w-2xl text-base mb-10">
-                    Flagship systems I'm building. Repositories are private; demos or walkthroughs available on request.
-                </p>
+      <div class="about">
+        <div>
+          <div class="portrait__box">
+            <figure class="portrait rv">
+              <span class="brk tl"></span><span class="brk tr"></span><span class="brk bl"></span><span class="brk br"></span>
+              <img src="profileee.jpeg" alt="Portrait of Akam Azizi" loading="lazy" onerror="this.hidden=true" />
+            </figure>
+            <div class="portrait__cap mono rv" data-d="120">
+              <span>FIG. 01 — A. AZIZI</span><span>AI ENGINEER</span>
             </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-                <!-- AI Document Assistant -->
-                <article class="reveal delay-100 group h-full flex flex-col bg-slate-50/50 rounded-3xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-2">
-                    <div class="p-8 flex flex-col h-full">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 text-slate-900 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i data-lucide="file-search" class="w-6 h-6"></i>
-                            </div>
-                            <span class="px-3 py-1 bg-slate-200 text-slate-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Private</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">AI Document Assistant (RAG)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
-                            Document intelligence assistant that answers questions across internal PDFs/notes using RAG (retrieval + grounded generation).
-                        </p>
-                        <ul class="text-slate-500 text-xs space-y-1 mb-4">
-                            <li>• Semantic chunking, embeddings & retrieval</li>
-                            <li>• Source-grounded answers (citations)</li>
-                            <li>• Upload → query → feedback workflow</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">Python</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">FastAPI</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">RAG</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">Vector DB</span>
-                        </div>
-                        <div class="flex items-center gap-3 pt-6 border-t border-slate-200 mt-auto">
-                            <a href="https://github.com/AkamAzizi/ai-knowledge-assistant" target="_blank" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors">
-                                <i data-lucide="github" class="w-4 h-4"></i> Repo
-                            </a>
-                            <span class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 text-slate-500 text-sm font-medium rounded-xl">Demo on request</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Offert AI -->
-                <article class="reveal delay-200 group h-full flex flex-col bg-slate-50/50 rounded-3xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-2">
-                    <div class="p-8 flex flex-col h-full">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 text-slate-900 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i data-lucide="file-output" class="w-6 h-6"></i>
-                            </div>
-                            <span class="px-3 py-1 bg-slate-200 text-slate-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Private</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">Offert AI</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
-                            AI-powered quote and proposal generator that turns structured inputs into consistent, customer-ready outputs.
-                        </p>
-                        <ul class="text-slate-500 text-xs space-y-1 mb-4">
-                            <li>• Template-driven output (PDF / Word-ready)</li>
-                            <li>• Guardrails for tone and formatting</li>
-                            <li>• Fast iteration across industries</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">AI</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">PDF</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">LLMs</span>
-                        </div>
-                        <div class="flex items-center gap-3 pt-6 border-t border-slate-200 mt-auto">
-                            <a href="https://github.com/AkamAzizi/Offert-Ai" target="_blank" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors">
-                                <i data-lucide="github" class="w-4 h-4"></i> Repo
-                            </a>
-                            <span class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 text-slate-500 text-sm font-medium rounded-xl">Demo on request</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- CAD-MVP -->
-                <article class="reveal delay-300 group h-full flex flex-col bg-slate-50/50 rounded-3xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-2">
-                    <div class="p-8 flex flex-col h-full">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 text-slate-900 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i data-lucide="boxes" class="w-6 h-6"></i>
-                            </div>
-                            <span class="px-3 py-1 bg-slate-200 text-slate-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Private</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">CAD-MVP (Multi-Agent)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
-                            Multi-agent pipeline for CAD automation: analyzes assemblies and supports engineering outputs and documentation workflows.
-                        </p>
-                        <ul class="text-slate-500 text-xs space-y-1 mb-4">
-                            <li>• CAD parsing + structured reasoning</li>
-                            <li>• Multi-agent orchestration</li>
-                            <li>• Reliable, repeatable outputs</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">Python</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">FreeCAD</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">Multi-Agent</span>
-                        </div>
-                        <div class="flex items-center gap-3 pt-6 border-t border-slate-200 mt-auto">
-                            <a href="https://github.com/AkamAzizi/CAD-MVP" target="_blank" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors">
-                                <i data-lucide="github" class="w-4 h-4"></i> Repo
-                            </a>
-                            <span class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 text-slate-500 text-sm font-medium rounded-xl">Demo on request</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Selected Works</h2>
-                    <p class="text-slate-600 max-w-xl text-lg">
-                        Projects that demonstrate my ability to ship complex logic and clean UIs.
-                    </p>
-                </div>
-                <a href="https://github.com/akamazizi" target="_blank" class="hidden md:inline-flex items-center gap-2 text-slate-900 font-semibold hover:text-primary-600 transition-colors">
-                    View all on GitHub <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Project 1 -->
-                <article class="reveal delay-100 group h-full flex flex-col bg-slate-50/50 rounded-3xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-2">
-                    <div class="p-8 flex flex-col h-full">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 text-slate-900 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i data-lucide="gamepad-2" class="w-6 h-6"></i>
-                            </div>
-                            <span class="px-3 py-1 bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Featured</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">Adaptive Boss Battle</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow">
-                            AI-inspired adaptive learning game. Difficulty and pacing adjust dynamically based on user performance and confidence.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">React Native</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">TypeScript</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">Expo</span>
-                        </div>
-                        <div class="flex items-center gap-3 pt-6 border-t border-slate-200 mt-auto">
-                            <a href="https://akamazizi.github.io/Adaptive-Boss-Battle/" target="_blank" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-slate-800 transition-colors">
-                                <i data-lucide="external-link" class="w-4 h-4"></i> Demo
-                            </a>
-                            <a href="https://github.com/AkamAzizi/Adaptive-Boss-Battle" target="_blank" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors">
-                                <i data-lucide="github" class="w-4 h-4"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2 -->
-                <article class="reveal delay-200 group h-full flex flex-col bg-slate-50/50 rounded-3xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-2">
-                    <div class="p-8 flex flex-col h-full">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 text-slate-900 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i data-lucide="file-text" class="w-6 h-6"></i>
-                            </div>
-                            <span class="px-3 py-1 bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-wider rounded-full">Featured</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">AI Resume Analyzer</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow">
-                            NLP-powered scoring engine comparing resumes against job descriptions. Highlights missing keywords using FastAPI & SpaCy.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">Python</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">FastAPI</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">React</span>
-                        </div>
-                        <div class="flex items-center gap-3 pt-6 border-t border-slate-200 mt-auto">
-                            <a href="https://github.com/AkamAzizi/ai-resume-analyzer" target="_blank" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors">
-                                <i data-lucide="github" class="w-4 h-4"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="reveal delay-100 group h-full flex flex-col bg-slate-50/50 rounded-3xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-2">
-                    <div class="p-8 flex flex-col h-full">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="p-3 bg-white rounded-2xl shadow-sm border border-slate-100 text-slate-900 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i data-lucide="zap" class="w-6 h-6"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors">Micro Challenges</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow">
-                             Local-only habit app focusing on small, achievable tasks. Features local notifications and streak tracking.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">React Native</span>
-                            <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-500">Expo</span>
-                        </div>
-                        <div class="flex items-center gap-3 pt-6 border-t border-slate-200 mt-auto">
-                            <a href="https://github.com/akamazizi/micro-challenges" target="_blank" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors">
-                                <i data-lucide="github" class="w-4 h-4"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-
-            </div>
-
-            <div class="mt-12 text-center md:hidden">
-                <a href="https://github.com/akamazizi" target="_blank" class="inline-flex items-center gap-2 text-slate-900 font-semibold hover:text-primary-600 transition-colors">
-                    View all on GitHub <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
-            </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 md:py-32 bg-slate-900 text-white overflow-hidden relative">
-        <!-- Background Accents -->
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div>
+          <div class="prose rv" data-d="100">
+            <p class="lead"><strong>AI Engineer and Full-Stack Developer</strong> focused on applied AI, multi-agent systems, and real-world product development.</p>
+            <p>Currently working at an AI startup, building end-to-end AI features including multi-agent content systems, LLM orchestration, and trend retrieval pipelines that automate real business workflows.</p>
+            <p>Background in Python, full-stack engineering, algorithm design, and applied machine learning, with hands-on experience across backend systems, APIs, and AI-first product architecture.</p>
+          </div>
 
-        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center reveal">
-            <h2 class="text-4xl md:text-6xl font-bold mb-8 tracking-tight">
-                Ready to start your next project?
-            </h2>
-            <p class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-                I'm currently looking for internship opportunities and junior developer roles. I’m responsive, eager to learn, and ready to build.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="mailto:akam.azizi33@gmail.com" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 rounded-full font-bold text-lg hover:scale-105 transition-transform flex items-center justify-center gap-2">
-                    <i data-lucide="mail" class="w-5 h-5"></i>
-                    Send me an email
-                </a>
-                <button onclick="copyEmail()" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-slate-700 text-white rounded-full font-bold text-lg hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 group">
-                    <i data-lucide="copy" class="w-5 h-5"></i>
-                    <span id="copy-text">Copy address</span>
-                </button>
-            </div>
-
-            <div class="mt-20 pt-10 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
-                <div class="text-slate-400 text-sm">
-                    Let's connect on social media
-                </div>
-                <div class="flex gap-6">
-                    <a href="https://github.com/akamazizi" target="_blank" class="text-white hover:text-primary-400 transition-colors flex items-center gap-2 font-medium">
-                        <i data-lucide="github" class="w-5 h-5"></i> GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/akam-azizi-932897213/" target="_blank" class="text-white hover:text-primary-400 transition-colors flex items-center gap-2 font-medium">
-                        <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
-                    </a>
-                </div>
-            </div>
+          <div class="caps">
+            <article class="cap rv" data-d="140">
+              <div class="cap__n">01</div>
+              <div>
+                <h4>Applied AI</h4>
+                <p>Integrating ML models into practical software workflows.</p>
+              </div>
+            </article>
+            <article class="cap rv" data-d="200">
+              <div class="cap__n">02</div>
+              <div>
+                <h4>Full Stack</h4>
+                <p>Building end-to-end solutions with React, Python &amp; SQL.</p>
+              </div>
+            </article>
+            <article class="cap rv" data-d="260">
+              <div class="cap__n">03</div>
+              <div>
+                <h4>Optimization</h4>
+                <p>Focusing on algorithmic efficiency and speed.</p>
+              </div>
+            </article>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-12">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="text-slate-900 font-bold text-lg">Akam Azizi</div>
-            <div class="text-slate-500 text-sm">
-                &copy; <span id="year"></span> All rights reserved.
-            </div>
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sechead">
+        <div class="sechead__idx mono rv">[ 02 ] Skills</div>
+        <div>
+          <h2 class="display sechead__title rv" data-d="80">Technical<br><span class="outline">arsenal.</span></h2>
+          <p class="sechead__lede rv" data-d="140">
+            A comprehensive toolkit for modern software development, ranging from low-level algorithms to high-level UI frameworks.
+          </p>
         </div>
-    </footer>
+      </div>
 
-    <!-- Scripts -->
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
+      <div class="sheet">
+        <div class="sheet__row rv">
+          <div class="sheet__key mono"><i aria-hidden="true"></i>Languages</div>
+          <div class="sheet__val">
+            <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">C#</span><span class="tag">SQL</span><span class="tag">Java</span>
+          </div>
+        </div>
+        <div class="sheet__row rv" data-d="70">
+          <div class="sheet__key mono"><i aria-hidden="true"></i>Frameworks &amp; Libs</div>
+          <div class="sheet__val">
+            <span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">React Native</span><span class="tag">Pygame</span><span class="tag">Tkinter</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span>
+          </div>
+        </div>
+        <div class="sheet__row rv" data-d="140">
+          <div class="sheet__key mono"><i aria-hidden="true"></i>AI &amp; Fundamentals</div>
+          <div class="sheet__val">
+            <span class="tag">Machine Learning</span><span class="tag">NLP</span><span class="tag">Applied AI</span><span class="tag">Backtracking</span><span class="tag">Dynamic Programming</span>
+          </div>
+        </div>
+        <div class="sheet__row rv" data-d="210">
+          <div class="sheet__key mono"><i aria-hidden="true"></i>Tools &amp; Platforms</div>
+          <div class="sheet__val">
+            <span class="tag">Git / GitHub</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">PostgreSQL</span><span class="tag">VS Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Set Year
-        document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sechead">
+        <div class="sechead__idx mono rv">[ 03 ] Projects</div>
+        <div>
+          <h2 class="display sechead__title rv" data-d="80">Featured<br><span class="outline">systems.</span></h2>
+          <p class="sechead__lede rv" data-d="140">
+            Flagship systems I'm building. Repositories are private; demos or walkthroughs available on request.
+          </p>
+        </div>
+      </div>
 
-        // Scroll Animation Observer
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+      <div class="panels rv">
+        <!-- 01 -->
+        <article class="panel">
+          <span class="brk tl"></span><span class="brk br"></span>
+          <div class="panel__top">
+            <span class="panel__n">P/01</span>
+            <span class="chip">Private</span>
+          </div>
+          <h3>AI Document<br>Assistant · RAG</h3>
+          <p class="panel__desc">Document intelligence assistant that answers questions across internal PDFs/notes using RAG (retrieval + grounded generation).</p>
+          <ul class="panel__list">
+            <li>Semantic chunking, embeddings &amp; retrieval</li>
+            <li>Source-grounded answers (citations)</li>
+            <li>Upload → query → feedback workflow</li>
+          </ul>
+          <div class="panel__stack">
+            <span>Python</span><span>FastAPI</span><span>RAG</span><span>Vector DB</span>
+          </div>
+          <div class="panel__links">
+            <a class="plink" href="https://github.com/AkamAzizi/ai-knowledge-assistant" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> Repo</a>
+            <span class="plink plink--mute">Demo on request</span>
+          </div>
+        </article>
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Only animate once
-                }
-            });
-        }, observerOptions);
+        <!-- 02 -->
+        <article class="panel">
+          <span class="brk tl"></span><span class="brk br"></span>
+          <div class="panel__top">
+            <span class="panel__n">P/02</span>
+            <span class="chip">Private</span>
+          </div>
+          <h3>Offert AI</h3>
+          <p class="panel__desc">AI-powered quote and proposal generator that turns structured inputs into consistent, customer-ready outputs.</p>
+          <ul class="panel__list">
+            <li>Template-driven output (PDF / Word-ready)</li>
+            <li>Guardrails for tone and formatting</li>
+            <li>Fast iteration across industries</li>
+          </ul>
+          <div class="panel__stack">
+            <span>AI</span><span>PDF</span><span>LLMs</span>
+          </div>
+          <div class="panel__links">
+            <a class="plink" href="https://github.com/AkamAzizi/Offert-Ai" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> Repo</a>
+            <span class="plink plink--mute">Demo on request</span>
+          </div>
+        </article>
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
+        <!-- 03 -->
+        <article class="panel">
+          <span class="brk tl"></span><span class="brk br"></span>
+          <div class="panel__top">
+            <span class="panel__n">P/03</span>
+            <span class="chip">Private</span>
+          </div>
+          <h3>CAD-MVP<br>Multi-Agent</h3>
+          <p class="panel__desc">Multi-agent pipeline for CAD automation: analyzes assemblies and supports engineering outputs and documentation workflows.</p>
+          <ul class="panel__list">
+            <li>CAD parsing + structured reasoning</li>
+            <li>Multi-agent orchestration</li>
+            <li>Reliable, repeatable outputs</li>
+          </ul>
+          <div class="panel__stack">
+            <span>Python</span><span>FreeCAD</span><span>Multi-Agent</span>
+          </div>
+          <div class="panel__links">
+            <a class="plink" href="https://github.com/AkamAzizi/CAD-MVP" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> Repo</a>
+            <span class="plink plink--mute">Demo on request</span>
+          </div>
+        </article>
+      </div>
 
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'shadow-sm');
-                navbar.classList.remove('bg-transparent');
-            } else {
-                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'shadow-sm');
-                navbar.classList.add('bg-transparent');
-            }
-        });
+      <div class="sechead">
+        <div class="sechead__idx mono rv">[ 03.b ] Selected</div>
+        <div>
+          <h2 class="display sechead__title rv" data-d="80">Selected<br><span class="outline">works.</span></h2>
+          <p class="sechead__lede rv" data-d="140">
+            Projects that demonstrate my ability to ship complex logic and clean UIs.
+          </p>
+        </div>
+      </div>
 
-        // Mobile Menu Logic
-        const menuBtn = document.getElementById('menu-btn');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+      <div class="rows">
+        <article class="row rv">
+          <div class="row__n">04<em>Featured</em></div>
+          <h3 class="row__t">Adaptive<br>Boss Battle</h3>
+          <p class="row__d">
+            AI-inspired adaptive learning game. Difficulty and pacing adjust dynamically based on user performance and confidence.
+            <em>React Native · TypeScript · Expo</em>
+          </p>
+          <div class="row__a">
+            <a class="mini" href="https://akamazizi.github.io/Adaptive-Boss-Battle/" target="_blank" rel="noopener"><svg><use href="#i-ext"/></svg> Live demo</a>
+            <a class="mini" href="https://github.com/AkamAzizi/Adaptive-Boss-Battle" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> Code</a>
+          </div>
+        </article>
 
-        function toggleMenu() {
-            mobileMenu.classList.toggle('translate-x-full');
-            document.body.classList.toggle('overflow-hidden');
-        }
+        <article class="row rv" data-d="70">
+          <div class="row__n">05<em>Featured</em></div>
+          <h3 class="row__t">AI Resume<br>Analyzer</h3>
+          <p class="row__d">
+            NLP-powered scoring engine comparing resumes against job descriptions. Highlights missing keywords using FastAPI &amp; SpaCy.
+            <em>Python · FastAPI · React</em>
+          </p>
+          <div class="row__a">
+            <a class="mini" href="https://github.com/AkamAzizi/ai-resume-analyzer" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> Code</a>
+          </div>
+        </article>
 
-        menuBtn.addEventListener('click', toggleMenu);
-        closeMenuBtn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+        <article class="row rv" data-d="140">
+          <div class="row__n">06</div>
+          <h3 class="row__t">Micro<br>Challenges</h3>
+          <p class="row__d">
+            Local-only habit app focusing on small, achievable tasks. Features local notifications and streak tracking.
+            <em>React Native · Expo</em>
+          </p>
+          <div class="row__a">
+            <a class="mini" href="https://github.com/akamazizi/micro-challenges" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> Code</a>
+          </div>
+        </article>
+      </div>
 
-        // Copy Email Logic
-        function copyEmail() {
-            navigator.clipboard.writeText("akam.azizi33@gmail.com");
-            const textSpan = document.getElementById('copy-text');
-            const originalText = textSpan.textContent;
-            textSpan.textContent = "Copied!";
-            setTimeout(() => {
-                textSpan.textContent = originalText;
-            }, 2000);
-        }
-    </script>
+      <a class="allgh mono rv" href="https://github.com/akamazizi" target="_blank" rel="noopener">
+        View all on GitHub <svg><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="sechead">
+        <div class="sechead__idx mono rv">[ 04 ] Contact</div>
+      </div>
+
+      <div class="term rv">
+        <div class="term__bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="mono faint">akam@portfolio — ~/contact</span>
+        </div>
+
+        <div class="term__body">
+          <p class="term__line mono"><b>$</b> <span>init --new-project</span><u aria-hidden="true"></u></p>
+          <h2 class="display">Ready to start<br>your <span class="outline">next project?</span></h2>
+          <p>
+            I'm currently looking for internship opportunities and junior developer roles.
+            I'm responsive, eager to learn, and ready to build.
+          </p>
+          <div class="term__cta">
+            <a href="mailto:akam.azizi33@gmail.com" class="btn btn--solid"><svg><use href="#i-mail"/></svg> akam.azizi33@gmail.com</a>
+            <button class="btn" id="copyBtn" type="button"><svg><use href="#i-copy"/></svg> <span id="copyLabel">Copy address</span></button>
+          </div>
+        </div>
+
+        <div class="term__foot">
+          <span class="mono faint">Let's connect</span>
+          <div class="social mono">
+            <a href="https://github.com/akamazizi" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> GitHub</a>
+            <a href="https://www.linkedin.com/in/akam-azizi-932897213/" target="_blank" rel="noopener"><svg><use href="#i-li"/></svg> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot__brand">Akam Azizi</div>
+    <div class="mono faint">&copy; <span id="year"></span> — All rights reserved</div>
+    <a href="#home" class="totop mono">Back to top <svg><use href="#i-up"/></svg></a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* year */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* hero load-in */
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+  });
+
+  /* reveal on scroll */
+  var items = document.querySelectorAll('.rv');
+  items.forEach(function(el){
+    var d = el.getAttribute('data-d');
+    if (d) el.style.setProperty('--d', d);
+  });
+  if ('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function(el){ io.observe(el); });
+  } else {
+    items.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* nav state + scroll progress */
+  var nav = document.getElementById('nav');
+  var bar = document.getElementById('bar');
+  var ticking = false;
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    nav.classList.toggle('stuck', y > 24);
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(y / h, 1) : 0) + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking){ window.requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive:true });
+  onScroll();
+
+  /* cursor spotlight (pointer devices only) */
+  var glow = document.getElementById('glow');
+  if (window.matchMedia('(pointer:fine)').matches && !reduce){
+    window.addEventListener('pointermove', function(e){
+      glow.style.setProperty('--mx', e.clientX + 'px');
+      glow.style.setProperty('--my', e.clientY + 'px');
+    }, { passive:true });
+  } else {
+    glow.style.display = 'none';
+  }
+
+  /* mobile drawer */
+  var drawer = document.getElementById('drawer');
+  var burger = document.getElementById('burger');
+  var closeBtn = document.getElementById('drawerClose');
+  function setDrawer(open){
+    drawer.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', String(!open));
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) closeBtn.focus(); else burger.focus();
+  }
+  burger.addEventListener('click', function(){ setDrawer(true); });
+  closeBtn.addEventListener('click', function(){ setDrawer(false); });
+  drawer.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ setDrawer(false); });
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && drawer.classList.contains('open')) setDrawer(false);
+  });
+
+  /* copy email */
+  var copyBtn = document.getElementById('copyBtn');
+  var copyLabel = document.getElementById('copyLabel');
+  var EMAIL = 'akam.azizi33@gmail.com';
+  copyBtn.addEventListener('click', function(){
+    var done = function(){
+      copyLabel.textContent = 'Copied ✓';
+      setTimeout(function(){ copyLabel.textContent = 'Copy address'; }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(EMAIL).then(done).catch(fallback);
+    } else { fallback(); }
+    function fallback(){
+      var t = document.createElement('textarea');
+      t.value = EMAIL; t.setAttribute('readonly',''); t.style.position = 'fixed'; t.style.opacity = '0';
+      document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); done(); } catch(err){ copyLabel.textContent = EMAIL; }
+      document.body.removeChild(t);
+    }
+  });
+})();
+</script>
 </body>
 </html>
